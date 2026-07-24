@@ -1,0 +1,50 @@
+<svg viewBox="0 0 800 700" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cluster deterjen konsentrat Orchid Care">
+  <defs>
+    <linearGradient id="fl-body" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#D6F5EB"/><stop offset="0.55" stop-color="#8FDDC4"/><stop offset="1" stop-color="#6FCBAE"/>
+    </linearGradient>
+    <linearGradient id="fl-cap" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FF8A73"/><stop offset="1" stop-color="#E85A45"/>
+    </linearGradient>
+    <linearGradient id="fl-cup" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFF6D6"/><stop offset="1" stop-color="#FFE685"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="400" cy="600" rx="280" ry="40" fill="#1F2A24" opacity="0.06"/>
+
+  <!-- big jug -->
+  <g>
+    <path d="M300 150 h96 a18 18 0 0 1 18 18 v30 h-132 v-30 a18 18 0 0 1 18 -18 z" fill="url(#fl-cap)"/>
+    <rect x="288" y="150" width="120" height="14" rx="7" fill="#FFB39E"/>
+    <path d="M410 244 h40 a52 52 0 0 1 52 52 v34 a52 52 0 0 1 -52 52 h-28" fill="none" stroke="url(#fl-body)" stroke-width="38" stroke-linecap="round"/>
+    <path d="M254 200 h150 a70 70 0 0 1 70 70 v190 a70 70 0 0 1 -70 70 h-150 a70 70 0 0 1 -70 -70 v-190 a70 70 0 0 1 70 -70 z" fill="url(#fl-body)"/>
+    <rect x="214" y="330" width="220" height="140" rx="24" fill="#FFFBF3"/>
+    <circle cx="266" cy="378" r="22" fill="#BFEFE0"/>
+    <path d="M255 378 a11 11 0 0 1 22 0 a11 11 0 0 1 -22 0" fill="#FF6F59"/>
+    <rect x="300" y="362" width="112" height="15" rx="7" fill="#1F2A24" opacity="0.8"/>
+    <rect x="300" y="386" width="86" height="11" rx="5" fill="#1F2A24" opacity="0.22"/>
+    <rect x="236" y="418" width="176" height="11" rx="5" fill="#1F2A24" opacity="0.16"/>
+    <rect x="236" y="438" width="128" height="11" rx="5" fill="#1F2A24" opacity="0.12"/>
+    <rect x="204" y="240" width="18" height="250" rx="9" fill="#FFFFFF" opacity="0.5"/>
+  </g>
+
+  <!-- measuring cup with liquid -->
+  <g transform="translate(516 396)">
+    <path d="M0 0 h150 l-16 150 a30 30 0 0 1 -30 26 h-58 a30 30 0 0 1 -30 -26 z" fill="url(#fl-cup)"/>
+    <path d="M12 96 h126 l-8 54 a30 30 0 0 1 -30 26 h-50 a30 30 0 0 1 -30 -26 z" fill="#8FDDC4"/>
+    <ellipse cx="75" cy="4" rx="75" ry="16" fill="#FFF6D6"/>
+    <ellipse cx="75" cy="4" rx="60" ry="10" fill="#FFE685"/>
+    <rect x="150" y="30" width="30" height="70" rx="14" fill="none" stroke="url(#fl-cup)" stroke-width="16"/>
+  </g>
+
+  <!-- bubbles -->
+  <g fill="#FFFFFF">
+    <circle cx="560" cy="200" r="30" opacity="0.85"/>
+    <circle cx="612" cy="270" r="18" opacity="0.7"/>
+    <circle cx="150" cy="220" r="16" opacity="0.7"/>
+  </g>
+  <g fill="none" stroke="#8FDDC4" stroke-width="4" opacity="0.55">
+    <circle cx="560" cy="200" r="30"/>
+  </g>
+  <path d="M640 160 l7 20 20 7 -20 7 -7 20 -7 -20 -20 -7 20 -7 z" fill="#FF6F59"/>
+</svg>

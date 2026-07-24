@@ -1,0 +1,36 @@
+<svg viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Botol deterjen laundry Orchid Care">
+  <defs>
+    <linearGradient id="cl-body" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#D6F5EB"/><stop offset="0.55" stop-color="#8FDDC4"/><stop offset="1" stop-color="#6FCBAE"/>
+    </linearGradient>
+    <linearGradient id="cl-cap" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FF8A73"/><stop offset="1" stop-color="#E85A45"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="350" cy="592" rx="180" ry="34" fill="#1F2A24" opacity="0.07"/>
+
+  <!-- measuring cap -->
+  <path d="M300 150 h100 a20 20 0 0 1 20 20 v34 h-140 v-34 a20 20 0 0 1 20 -20 z" fill="url(#cl-cap)"/>
+  <rect x="286" y="150" width="128" height="16" rx="8" fill="#FFB39E"/>
+
+  <!-- handle -->
+  <path d="M418 250 h44 a54 54 0 0 1 54 54 v40 a54 54 0 0 1 -54 54 h-30" fill="none" stroke="url(#cl-body)" stroke-width="40" stroke-linecap="round"/>
+
+  <!-- body -->
+  <path d="M260 210 h160 a70 70 0 0 1 70 70 v210 a70 70 0 0 1 -70 70 h-160 a70 70 0 0 1 -70 -70 v-210 a70 70 0 0 1 70 -70 z" fill="url(#cl-body)"/>
+
+  <!-- label -->
+  <rect x="222" y="360" width="236" height="150" rx="26" fill="#FFFBF3"/>
+  <circle cx="278" cy="410" r="24" fill="#BFEFE0"/>
+  <path d="M266 410 a12 12 0 0 1 24 0 a12 12 0 0 1 -24 0" fill="#FF6F59"/>
+  <rect x="316" y="392" width="120" height="16" rx="8" fill="#1F2A24" opacity="0.8"/>
+  <rect x="316" y="418" width="96" height="12" rx="6" fill="#1F2A24" opacity="0.25"/>
+  <rect x="246" y="452" width="188" height="12" rx="6" fill="#1F2A24" opacity="0.18"/>
+  <rect x="246" y="474" width="140" height="12" rx="6" fill="#1F2A24" opacity="0.14"/>
+
+  <!-- highlight -->
+  <rect x="212" y="250" width="20" height="280" rx="10" fill="#FFFFFF" opacity="0.5"/>
+  <!-- bubbles -->
+  <circle cx="510" cy="240" r="20" fill="#FFFFFF" opacity="0.8"/>
+  <circle cx="548" cy="300" r="12" fill="#FFFFFF" opacity="0.65"/>
+</svg>

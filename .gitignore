@@ -1,0 +1,47 @@
+# ==============================================================================
+# WordPress Core Files & Directories
+# ==============================================================================
+/wp-admin/
+/wp-includes/
+/index.php
+/license.txt
+/readme.html
+/wp-*.php
+/xmlrpc.php
+/.htaccess
+
+# Secrets / Config
+wp-config.php
+wp-config-sample.php
+
+# ==============================================================================
+# WordPress Content & Media
+# ==============================================================================
+/wp-content/uploads/
+/wp-content/upgrade/
+/wp-content/cache/
+/wp-content/blogs.dir/
+/wp-content/languages/
+/wp-content/advanced-cache.php
+/wp-content/wp-cache-config.php
+
+# Default Themes & Plugins
+/wp-content/themes/twentytwenty*
+/wp-content/themes/orchidbrand/
+/wp-content/themes/index.php
+/wp-content/plugins/akismet/
+/wp-content/plugins/hello.php
+/wp-content/plugins/index.php
+
+# ==============================================================================
+# Environment, OS, & IDE Files
+# ==============================================================================
+.env
+*.log
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.idea/
+.vscode/
+node_modules/

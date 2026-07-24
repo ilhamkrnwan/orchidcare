@@ -1,0 +1,49 @@
+<svg viewBox="0 0 800 700" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Botol parfum linen dan anggrek Orchid Care">
+  <defs>
+    <linearGradient id="fp-glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F1E9FB"/><stop offset="0.55" stop-color="#CBB3EE"/><stop offset="1" stop-color="#B79BE4"/>
+    </linearGradient>
+    <linearGradient id="fp-liquid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FF8A73"/><stop offset="1" stop-color="#E85A45"/>
+    </linearGradient>
+    <radialGradient id="fp-mist" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.9"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <ellipse cx="400" cy="602" rx="270" ry="38" fill="#1F2A24" opacity="0.06"/>
+
+  <!-- linen pillow behind -->
+  <path d="M470 470 q10 -120 150 -110 q120 20 100 130 q-14 66 -130 66 q-124 0 -120 -86 z" fill="#EFE4FA"/>
+  <path d="M500 462 q10 -90 130 -84 q92 12 82 96" fill="none" stroke="#CBB3EE" stroke-width="8" stroke-linecap="round" opacity="0.6"/>
+
+  <!-- perfume bottle -->
+  <g transform="translate(150 20)">
+    <circle cx="500" cy="250" r="46" fill="#FFD9B8"/>
+    <ellipse cx="486" cy="236" rx="14" ry="10" fill="#FFFFFF" opacity="0.6"/>
+    <path d="M462 226 l-40 -26" stroke="#B79BE4" stroke-width="10" stroke-linecap="round"/>
+    <rect x="316" y="150" width="68" height="60" rx="16" fill="#1F2A24" opacity="0.85"/>
+    <rect x="330" y="204" width="40" height="30" rx="8" fill="#FFC08C"/>
+    <path d="M280 232 h140 v34 a40 40 0 0 1 22 36 v170 a60 60 0 0 1 -60 60 h-86 a60 60 0 0 1 -60 -60 v-170 a40 40 0 0 1 22 -36 z" fill="url(#fp-glass)"/>
+    <path d="M258 420 h184 v52 a60 60 0 0 1 -60 60 h-64 a60 60 0 0 1 -60 -60 z" fill="url(#fp-liquid)"/>
+    <rect x="300" y="360" width="100" height="52" rx="14" fill="#FFFBF3"/>
+    <rect x="318" y="378" width="64" height="10" rx="5" fill="#1F2A24" opacity="0.7"/>
+    <rect x="318" y="394" width="44" height="8" rx="4" fill="#1F2A24" opacity="0.2"/>
+    <rect x="272" y="270" width="16" height="180" rx="8" fill="#FFFFFF" opacity="0.55"/>
+    <!-- mist -->
+    <circle cx="620" cy="150" r="60" fill="url(#fp-mist)"/>
+    <circle cx="660" cy="120" r="6" fill="#CBB3EE"/><circle cx="600" cy="110" r="5" fill="#FF6F59"/><circle cx="672" cy="176" r="4" fill="#CBB3EE"/>
+  </g>
+
+  <!-- orchid -->
+  <g transform="translate(196 486) scale(1.15)">
+    <path d="M0 0 C-30 -34 -30 -70 0 -76 C30 -70 30 -34 0 0 Z" fill="#F1E4FA"/>
+    <path d="M0 4 C-40 -6 -64 -34 -50 -58 C-30 -70 -6 -50 0 -18 Z" fill="#E3D6F5"/>
+    <path d="M0 4 C40 -6 64 -34 50 -58 C30 -70 6 -50 0 -18 Z" fill="#E3D6F5"/>
+    <path d="M-4 6 C-26 32 -20 60 4 58 C22 48 16 20 6 4 Z" fill="#EBDDF7"/>
+    <path d="M4 6 C26 32 20 60 -4 58 C-22 48 -16 20 -6 4 Z" fill="#EBDDF7"/>
+    <circle cx="0" cy="-8" r="12" fill="#FF6F59"/>
+    <circle cx="0" cy="-8" r="5" fill="#FFE685"/>
+  </g>
+
+  <path d="M150 250 l7 20 20 7 -20 7 -7 20 -7 -20 -20 -7 20 -7 z" fill="#FF6F59"/>
+</svg>

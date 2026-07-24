@@ -1,0 +1,66 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 2,
+  "settings": {
+    "appearanceTools": true,
+    "color": {
+      "palette": [
+        { "slug": "ink",          "color": "#16361E", "name": "Forest Ink" },
+        { "slug": "cream",        "color": "#F5FAF0", "name": "Fresh Cream" },
+        { "slug": "mint",         "color": "#D6F29C", "name": "Soft Mint" },
+        { "slug": "mint-deep",    "color": "#88C425", "name": "Lime Green" },
+        { "slug": "lime",         "color": "#C0E812", "name": "Lime Highlight" },
+        { "slug": "orchid",       "color": "#D81B80", "name": "Orchid Magenta" },
+        { "slug": "orchid-dark",  "color": "#B8136C", "name": "Orchid Dark" },
+        { "slug": "orchid-soft",  "color": "#FDEBF5", "name": "Orchid Soft" },
+        { "slug": "peach",        "color": "#FFE8D6", "name": "Peach" },
+        { "slug": "butter",       "color": "#F6FBAE", "name": "Butter" },
+        { "slug": "lavender",     "color": "#F4D8ED", "name": "Lavender" },
+        { "slug": "white",        "color": "#FFFFFF", "name": "White" }
+      ],
+      "custom": false,
+      "customGradient": false,
+      "gradients": [],
+      "link": true
+    },
+    "typography": {
+      "fontFamilies": [
+        {
+          "fontFamily": "'Baloo 2', sans-serif",
+          "name": "Baloo 2",
+          "slug": "baloo-2"
+        },
+        {
+          "fontFamily": "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
+          "name": "Inter",
+          "slug": "inter"
+        },
+        {
+          "fontFamily": "'JetBrains Mono', monospace",
+          "name": "JetBrains Mono",
+          "slug": "jetbrains-mono"
+        }
+      ],
+      "customFontSize": false,
+      "fontSizes": [
+        { "size": "0.625rem", "slug": "2xs",    "name": "2XS" },
+        { "size": "0.75rem",  "slug": "xs",     "name": "XS" },
+        { "size": "0.875rem", "slug": "sm",     "name": "Small" },
+        { "size": "1rem",     "slug": "base",   "name": "Base" },
+        { "size": "1.125rem", "slug": "lg",     "name": "Large" },
+        { "size": "1.5rem",   "slug": "xl",     "name": "XL" },
+        { "size": "1.875rem", "slug": "2xl",    "name": "2XL" },
+        { "size": "2.25rem",  "slug": "3xl",    "name": "3XL" },
+        { "size": "3rem",     "slug": "4xl",    "name": "4XL" },
+        { "size": "3.75rem",  "slug": "5xl",    "name": "5XL" }
+      ]
+    },
+    "layout": {
+      "contentSize": "1200px",
+      "wideSize": "1400px"
+    },
+    "spacing": {
+      "units": ["rem", "px", "%"]
+    }
+  }
+}

@@ -12,140 +12,160 @@ if (have_posts()) : while (have_posts()) : the_post();
     $cat_name = ($terms && !is_wp_error($terms)) ? $terms[0]->name : 'Orchid Care';
     $cat_link = ($terms && !is_wp_error($terms)) ? get_term_link($terms[0]) : home_url('/produk');
 
-    // Get custom fields or set defaults for catalog testing
+    // Custom fields or default fallback values
     $sku       = get_post_meta(get_the_ID(), '_product_sku', true) ?: 'OC-PROD-' . get_the_ID();
     $ratio     = get_post_meta(get_the_ID(), '_product_ratio', true) ?: '1 kg biang konsentrat diracik mandiri jadi 15 Liter cairan siap pakai';
     $weight    = get_post_meta(get_the_ID(), '_product_weight', true) ?: '1000 gram (1 kg)';
-    $aroma     = get_post_meta(get_the_ID(), '_product_aroma', true) ?: 'Super Lemon Fresh';
+    $aroma     = get_post_meta(get_the_ID(), '_product_aroma', true) ?: 'Super Fresh / Aroma Wewangian Impor';
 
     $wa_msg = "Halo Orchid Care, saya berminat dengan produk:\n* " . get_the_title() . " (Kode: {$sku}) *\n\nMohon informasi pemesanan, ketersediaan stok, dan penawaran harganya. Terima kasih!";
     $wa_url = orchid_wa_url($wa_msg);
+    $thumb_url = has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'large') : get_template_directory_uri() . '/assets/img/product-laundry.png';
 ?>
+
+<!-- Inline Responsive Styling untuk Mobile Compatibility & Clean Layout -->
+<style>
+.single-product-page .container {
+    width: 100%;
+    max-width: 1240px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+}
+.single-product-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 3.5rem;
+    align-items: start;
+    margin-bottom: 4rem;
+}
+.specs-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.75rem;
+}
+.specs-table th, .specs-table td {
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid rgba(22, 54, 30, 0.08);
+    font-size: 0.93rem;
+    text-align: left;
+}
+.specs-table th {
+    color: rgba(22, 54, 30, 0.7);
+    font-weight: 700;
+    width: 38%;
+    background: #fafafa;
+}
+.specs-table td {
+    color: #16361E;
+}
+@media (max-width: 992px) {
+    .single-product-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2.5rem !important;
+    }
+}
+@media (max-width: 768px) {
+    .single-product-page section {
+        padding: 3rem 0 !important;
+    }
+}
+</style>
 
 <main id="main-content" class="single-product-page">
     
-    <!-- ═══ UNIFORM PAGE HERO BANNER ═══ -->
+    <!-- ═══ 1. ELEGANT PAGE HERO BANNER ═══ -->
     <?php orchid_page_hero(
         'DETAIL PRODUK — ' . strtoupper($cat_name),
         get_the_title(),
-        'Kode Produk: ' . $sku . ' | ' . $ratio
+        'Kode Produk: ' . $sku . ' | Formulasi Resmi PT Indotech Berkah Abadi'
     ); ?>
 
-    <!-- ═══ PRODUCT DETAIL CONTAINER ═══ -->
-    <section class="product-detail-section">
+    <!-- ═══ 2. MAIN PRODUCT DETAIL SECTION ═══ -->
+    <section class="product-detail-section" style="padding: 4.5rem 0; background: #ffffff; border-bottom: 1px solid rgba(22, 54, 30, 0.06);">
         <div class="container">
-            <div class="product-detail-grid">
+            
+            <div class="single-product-grid">
                 
-                <!-- LEFT: MEDIA & PLACEHOLDER GALLERY -->
-                <div class="product-media-col reveal">
-                    
-                    <!-- Main Image (or Placeholder) -->
-                    <div class="product-main-media">
-                        <?php if (has_post_thumbnail()) : ?>
-                            <?php the_post_thumbnail('large', ['class' => 'product-main-img']); ?>
-                        <?php else : ?>
-                            <div class="media-placeholder-box">
-                                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#FF6F59" stroke-width="1.5">
-                                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                                    <line x1="12" y1="22.08" x2="12" y2="12"></line>
-                                </svg>
-                                <span class="placeholder-label">Foto Utama Produk (Placeholder)</span>
-                                <span class="placeholder-sublabel">Ukuran rekomendasi: 800 x 800px</span>
-                            </div>
-                        <?php endif; ?>
-                        <span class="chip-tag product-cat-chip"><?php echo esc_html($cat_name); ?></span>
-                    </div>
-
-                    <!-- Gallery Placeholders -->
-                    <div class="product-gallery-section">
-                        <h4 class="gallery-title">Galeri Produk (Placeholder)</h4>
-                        <div class="gallery-placeholder-grid">
-                            <div class="gallery-thumb-placeholder is-active">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8FDDC4" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-                                <span>Foto 1</span>
-                            </div>
-                            <div class="gallery-thumb-placeholder">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF8A73" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-                                <span>Foto 2</span>
-                            </div>
-                            <div class="gallery-thumb-placeholder">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#CBB3EE" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-                                <span>Foto 3</span>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!-- RIGHT: INFO & WHATSAPP CATALOG ACTION -->
-                <div class="product-info-col reveal">
-                    
-                    <div class="product-header">
-                        <span class="chip-tag chip-tag--mint">MODEL KATALOG ONLINE</span>
-                        <h1 class="product-title"><?php the_title(); ?></h1>
-                        <p class="product-sku">Kode Produk: <code><?php echo esc_html($sku); ?></code></p>
+                <!-- KOLOM KIRI: FOTO UTAMA & BADGES -->
+                <div class="reveal">
+                    <div style="position: relative; border-radius: 1.75rem; overflow: hidden; border: 1px solid rgba(22, 54, 30, 0.08); box-shadow: 0 12px 35px rgba(22, 54, 30, 0.06); background: #fafafa; margin-bottom: 1.5rem;">
+                        <img src="<?php echo esc_url($thumb_url); ?>" alt="<?php the_title_attribute(); ?>" style="width: 100%; height: auto; display: block; object-fit: cover; border-radius: 1.75rem;" loading="lazy">
+                        <span class="chip-tag chip-tag--mint" style="position: absolute; top: 1.25rem; left: 1.25rem; font-size: 0.8rem; padding: 0.35rem 0.9rem; border-radius: 999px;">
+                            <?php echo esc_html($cat_name); ?>
+                        </span>
                     </div>
 
                     <!-- Highlights Badge Bar -->
-                    <div class="product-highlights">
-                        <span class="highlight-chip">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                            Legal &amp; Terdaftar
+                    <div style="display: flex; gap: 0.65rem; flex-wrap: wrap;">
+                        <span style="background: #EAF8D0; color: #16361E; border: 1px solid rgba(22, 54, 30, 0.1); padding: 0.45rem 1rem; border-radius: 999px; font-size: 0.8rem; font-weight: 800;">
+                            ✓ Legal &amp; Izin PKRT Kemenkes RI
                         </span>
-                        <span class="highlight-chip">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-                            Formula Efisien
+                        <span style="background: #EAF8D0; color: #16361E; border: 1px solid rgba(22, 54, 30, 0.1); padding: 0.45rem 1rem; border-radius: 999px; font-size: 0.8rem; font-weight: 800;">
+                            ✓ Certified Halal MUI
                         </span>
-                        <span class="highlight-chip">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-                            Kirim Se-Indonesia
+                        <span style="background: #EAF8D0; color: #16361E; border: 1px solid rgba(22, 54, 30, 0.1); padding: 0.45rem 1rem; border-radius: 999px; font-size: 0.8rem; font-weight: 800;">
+                            ✓ Garansi Stok Pabrik Sleman
                         </span>
                     </div>
+                </div>
 
-                    <!-- Short Excerpt -->
-                    <div class="product-short-desc">
+                <!-- KOLOM KANAN: INFORMASI, SPESIFIKASI & ACTION WA -->
+                <div class="reveal">
+                    <span class="chip-tag chip-tag--coral" style="margin-bottom: 0.75rem; display: inline-block;">DESKRIPSI PRODUK &amp; SPESIFIKASI</span>
+                    
+                    <h1 style="font-family: var(--font-display, 'Baloo 2', sans-serif); font-size: clamp(2rem, 4vw, 2.5rem); color: #16361E; font-weight: 800; line-height: 1.2; margin-bottom: 0.5rem;">
+                        <?php the_title(); ?>
+                    </h1>
+                    <p style="color: rgba(22, 54, 30, 0.6); font-size: 0.92rem; font-family: var(--font-mono, monospace); font-weight: 700; margin-bottom: 1.25rem;">
+                        SKU / Kode: <?php echo esc_html($sku); ?>
+                    </p>
+
+                    <!-- Short Excerpt / Summary -->
+                    <div style="color: rgba(22, 54, 30, 0.8); font-size: 1rem; line-height: 1.68; margin-bottom: 1.75rem;">
                         <?php the_excerpt(); ?>
                     </div>
 
                     <!-- Specifications Table -->
-                    <div class="product-specs-box">
-                        <h3 class="specs-heading">Spesifikasi &amp; Detail Racikan</h3>
-                        <table class="specs-table">
+                    <div style="background: #ffffff; border: 1px solid rgba(22, 54, 30, 0.08); border-radius: 1.25rem; overflow: hidden; margin-bottom: 2rem;">
+                        <div style="padding: 1rem 1.25rem; background: #fafafa; border-bottom: 1px solid rgba(22, 54, 30, 0.08);">
+                            <h3 style="font-family: var(--font-display, sans-serif); font-size: 1.05rem; color: #16361E; font-weight: 800; margin: 0;">Spesifikasi &amp; Detail Produksi</h3>
+                        </div>
+                        <table class="specs-table" style="margin: 0;">
                             <tr>
-                                <th>Kategori</th>
+                                <th>Kategori Produk</th>
                                 <td><?php echo esc_html($cat_name); ?></td>
                             </tr>
                             <tr>
-                                <th>Berat Kemasan</th>
+                                <th>Kemasan / Berat</th>
                                 <td><?php echo esc_html($weight); ?></td>
                             </tr>
                             <tr>
                                 <th>Hasil Racikan / Rasio</th>
-                                <td><strong><?php echo esc_html($ratio); ?></strong></td>
+                                <td><strong style="color: #88C425;"><?php echo esc_html($ratio); ?></strong></td>
                             </tr>
                             <tr>
-                                <th>Aroma / Varian</th>
+                                <th>Varian / Aroma</th>
                                 <td><?php echo esc_html($aroma); ?></td>
                             </tr>
                             <tr>
-                                <th>Produsen</th>
-                                <td>PT Indotech Berkah Abadi (Sleman, Yogyakarta)</td>
+                                <th>Fasilitas Pabrik</th>
+                                <td>PT Indotech Berkah Abadi (Sleman, D.I. Yogyakarta)</td>
                             </tr>
                         </table>
                     </div>
 
-                    <!-- WHATSAPP DIRECT CATALOG BUTTON -->
-                    <div class="product-cta-box">
-                        <div class="cta-notice">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-                            <span>Tertarik dengan produk ini? Pesan atau konsultasikan langsung via WhatsApp official kami.</span>
-                        </div>
-                        <a href="<?php echo esc_url($wa_url); ?>" target="_blank" rel="noopener" class="btn btn-whatsapp-lg">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
-                            </svg>
-                            Pesan via WhatsApp Sekarang
+                    <!-- Direct WhatsApp Order Action Box -->
+                    <div style="background: #EAF8D0; border: 1px solid rgba(22, 54, 30, 0.12); border-radius: 1.5rem; padding: 1.75rem;">
+                        <h4 style="font-family: var(--font-display, 'Baloo 2', sans-serif); font-size: 1.2rem; color: #16361E; font-weight: 800; margin-bottom: 0.5rem;">
+                            Tertarik dengan produk ini?
+                        </h4>
+                        <p style="color: rgba(22, 54, 30, 0.8); font-size: 0.93rem; line-height: 1.55; margin-bottom: 1.25rem;">
+                            Dapatkan penawaran harga grosir pabrik, pengiriman sampel, &amp; konsultasi kemitraan langsung dari CS resmi kami.
+                        </p>
+                        <a href="<?php echo esc_url($wa_url); ?>" target="_blank" rel="noopener" class="btn-search-pill" style="font-size: 1rem; padding: 0.85rem 2rem; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; background: #16361E; color: #ffffff; font-weight: 800; border-radius: 999px; width: 100%; box-shadow: none !important;">
+                            <span>Pesan via WhatsApp Sekarang &rarr;</span>
                         </a>
                     </div>
 
@@ -153,21 +173,59 @@ if (have_posts()) : while (have_posts()) : the_post();
 
             </div>
 
-            <!-- FULL DESCRIPTION & INSTRUCTIONS -->
-            <div class="product-full-description reveal">
-                <h2 class="description-heading">Deskripsi &amp; Panduan Pemakaian</h2>
-                <div class="entry-content prose">
+            <!-- FULL DESCRIPTION & MIXING INSTRUCTIONS -->
+            <div class="reveal" style="background: #fafafa; border: 1px solid rgba(22, 54, 30, 0.08); border-radius: 1.75rem; padding: 2.5rem; margin-bottom: 3.5rem;">
+                <span class="chip-tag chip-tag--mint" style="margin-bottom: 0.75rem; display: inline-block;">PANDUAN &amp; APELIKASI</span>
+                <h2 style="font-family: var(--font-display, 'Baloo 2', sans-serif); font-size: 1.75rem; color: #16361E; font-weight: 800; margin-bottom: 1.25rem;">
+                    Deskripsi Lengkap &amp; Petunjuk Pemakaian
+                </h2>
+                <div style="color: rgba(22, 54, 30, 0.82); font-size: 1rem; line-height: 1.75;">
                     <?php the_content(); ?>
                 </div>
             </div>
 
-            <!-- BACK TO CATALOG BUTTON -->
-            <div class="catalog-back-action reveal">
-                <a href="<?php echo esc_url(home_url('/produk')); ?>" class="btn btn-ink">
-                    ← Kembali ke Katalog Produk
+            <!-- BACK TO CATALOG ACTION BUTTON -->
+            <div class="reveal text-center">
+                <a href="<?php echo esc_url(home_url('/produk')); ?>" class="btn-search-pill" style="text-decoration: none; padding: 0.85rem 2rem; background: #16361E; color: #ffffff; display: inline-flex; align-items: center; gap: 0.5rem; border-radius: 999px; font-weight: 800; box-shadow: none !important;">
+                    <span>&larr; Kembali ke Katalog Produk</span>
                 </a>
             </div>
 
+        </div>
+    </section>
+
+    <!-- ═══ 3. CTA BANNER PENUTUP (MATCHING BERANDA & ABOUT PAGE) ═══ -->
+    <section class="cta-banner-penutup" id="cta-penutup" style="background: #16361E; color: #ffffff; padding: 5.5rem 0; position: relative; overflow: hidden; border-top: 3px solid #88C425;">
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 650px; height: 350px; background: radial-gradient(circle, rgba(136, 196, 37, 0.12) 0%, rgba(22, 54, 30, 0) 70%); pointer-events: none;"></div>
+
+        <div class="container" style="position: relative; z-index: 2; max-width: 820px; text-align: center;">
+            <span style="background: #88C425; color: #16361E; font-weight: 800; font-size: 0.78rem; padding: 0.45rem 1.1rem; border-radius: 999px; font-family: var(--font-mono, monospace); display: inline-block; margin-bottom: 1.25rem; letter-spacing: 0.05em;">
+                PABRIK &amp; SUPPLIER SABUN SLEMAN YOGYAKARTA
+            </span>
+
+            <h2 style="font-family: var(--font-display, 'Baloo 2', sans-serif); font-size: clamp(2rem, 4vw, 2.6rem); line-height: 1.2; color: #ffffff; margin: 0 0 1rem; font-weight: 800;">
+                Siap Bermitra dengan Produsen &amp; Supplier Sabun Tangan Pertama?
+            </h2>
+
+            <p style="color: #cbd5e1; font-size: 1.02rem; line-height: 1.65; margin: 0 auto 2.25rem; max-width: 680px;">
+                Hubungi tim kemitraan <strong>Orchid Care (PT Indotech Berkah Abadi)</strong> untuk konsultasi pasokan grosir rutin, peluang keagenan, &amp; suplai sabun laundry kiloan se-Indonesia.
+            </p>
+
+            <div class="cta-buttons-wrap" style="display: flex; gap: 1.25rem; justify-content: center; flex-wrap: wrap;">
+                <a href="<?php echo esc_url($wa_url); ?>" target="_blank" rel="noopener" class="btn-search-pill" style="font-size: 1rem; padding: 0.85rem 2.2rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; background: var(--orchid, #D81B80); color: #ffffff; font-weight: 800; border-radius: 999px; box-shadow: none !important;">
+                    <span>Hubungi Kemitraan WA</span>
+                </a>
+
+                <a href="<?php echo esc_url(home_url('/produk')); ?>" class="btn" style="background: rgba(255,255,255,0.12); color: #ffffff; border: 1px solid rgba(255,255,255,0.25); font-size: 1rem; padding: 0.85rem 2.2rem; text-decoration: none; border-radius: 999px; font-weight: 700; backdrop-filter: blur(8px);">
+                    Lihat Katalog Produk
+                </a>
+            </div>
+
+            <div style="margin-top: 2.75rem; display: flex; gap: 1.75rem; justify-content: center; flex-wrap: wrap; font-size: 0.88rem; color: #cbd5e1; border-top: 1px solid rgba(255,255,255,0.12); padding-top: 1.5rem; font-weight: 600;">
+                <span>✓ Pabrik Resmi Sleman, D.I. Yogyakarta</span>
+                <span>✓ Izin Edar Kemenkes RI &amp; Halal MUI</span>
+                <span>✓ Biang Konsentrat Hemat Ongkir 90%</span>
+            </div>
         </div>
     </section>
 

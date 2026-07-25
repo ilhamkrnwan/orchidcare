@@ -10,7 +10,7 @@
 <?php wp_body_open(); ?>
 
 <?php
-$whatsapp = orchid_opt('whatsapp', '6287885590088');
+$whatsapp = orchid_opt('whatsapp', '6285559474797');
 $wa_num   = preg_replace('/[^0-9]/', '', $whatsapp);
 $wa_url   = orchid_wa_url('Halo Orchid Care, saya ingin bertanya mengenai produk.');
 ?>

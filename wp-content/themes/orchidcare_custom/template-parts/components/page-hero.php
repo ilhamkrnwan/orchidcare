@@ -23,7 +23,7 @@ $button = isset($args['button']) ? $args['button'] : null;
             <?php endif; ?>
             <h1 class="page-hero-title"><?php echo esc_html($title); ?></h1>
             <?php if ($lead) : ?>
-                <p class="page-hero-lead"><?php echo esc_html($lead); ?></p>
+                <p class="page-hero-lead"><?php echo wp_kses_post($lead); ?></p>
             <?php endif; ?>
             <?php if (!empty($button) && is_array($button)) : ?>
                 <div class="page-hero-actions" style="margin-top: 1.75rem;">

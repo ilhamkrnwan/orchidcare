@@ -9,7 +9,7 @@
  * 5. Section Kategori 3 (Perawatan Otomotif / Auto Care)
  * 6. Section Kategori 4 (Biang Konsentrat / 1kg -> 15L)
  * 7. Section Kategori 5 (Parfum & Wewangian / Malabeez Perfume)
- * 8. Section Kategori 6 (Pasokan B2B & Jerigen Industri)
+ * 8. Section Kategori 6 (Sanitasi Care & Disinfektan)
  * 9. Gallery & CTA Penutup
  * 10. Footer
  */
@@ -38,7 +38,7 @@ get_header(); ?>
     <!-- 7. SECTION KATEGORI 5: PARFUM & WEWANGIAN (MALABEEZ PERFUME) -->
     <?php get_template_part('template-parts/home/feature-parfum'); ?>
 
-    <!-- 8. SECTION KATEGORI 6: PASOKAN B2B & JERIGEN INDUSTRI -->
+    <!-- 8. SECTION KATEGORI 6: SANITASI CARE & DISINFEKTAN -->
     <?php get_template_part('template-parts/home/feature-b2b'); ?>
 
     <!-- 9. GALLERY & CTA PENUTUP -->

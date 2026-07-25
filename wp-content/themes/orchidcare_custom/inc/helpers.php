@@ -11,7 +11,7 @@ if (!defined('ABSPATH')) exit;
 if (!function_exists('orchid_format_wa_number')) {
     function orchid_format_wa_number($phone = '') {
         if (empty($phone)) {
-            $phone = orchid_opt('whatsapp', '6287885590088');
+            $phone = orchid_opt('whatsapp', '6285559474797');
         }
         $clean = preg_replace('/[^0-9]/', '', $phone);
         if (strpos($clean, '0') === 0) {
@@ -26,7 +26,7 @@ if (!function_exists('orchid_format_wa_number')) {
  */
 if (!function_exists('orchid_wa_url')) {
     function orchid_wa_url($message = '') {
-        $wa_num = orchid_format_wa_number(orchid_opt('whatsapp', '6287885590088'));
+        $wa_num = orchid_format_wa_number(orchid_opt('whatsapp', '6285559474797'));
         $url = "https://api.whatsapp.com/send?phone={$wa_num}";
         if ($message) {
             $url .= '&text=' . rawurlencode($message);
@@ -97,7 +97,7 @@ if (!function_exists('orchid_render_schema_markup')) {
             'name'        => 'PT Indotech Berkah Abadi — Orchid Care',
             'description' => 'Produsen bahan kimia untuk laundry, perbekalan rumah tangga (PKRT), perawatan otomotif, & biang konsentrat di Sleman, Yogyakarta.',
             'url'         => home_url('/'),
-            'telephone'   => orchid_opt('phone', '+62 878-8559-0088'),
+            'telephone'   => orchid_opt('phone', '+62 855-5947-4797'),
             'address'     => [
                 '@type'           => 'PostalAddress',
                 'streetAddress'   => 'Jongke Tengah No. 30, Sendangadi, Mlati',

@@ -55,7 +55,7 @@ function orchid_customizer($wp_customize) {
         'hero_cta1'     => ['Teks CTA 1 (Katalog)', 'Lihat Katalog Produk'],
         'hero_cta1_url' => ['URL CTA 1', '/produk'],
         'hero_cta2'     => ['Teks CTA 2 (WhatsApp)', 'Konsultasi Kemitraan'],
-        'hero_cta2_url' => ['URL CTA 2', 'https://api.whatsapp.com/send?phone=6287885590088'],
+        'hero_cta2_url' => ['URL CTA 2', 'https://api.whatsapp.com/send?phone=6285559474797'],
     ];
 
     foreach ($hero_fields as $key => [$label, $default]) {
@@ -78,8 +78,8 @@ function orchid_customizer($wp_customize) {
     ]);
 
     $contact_fields = [
-        'phone'       => ['Nomor Telepon', '+62 878-8559-0088'],
-        'whatsapp'    => ['Nomor WhatsApp CS (Tanpa simbol/spasi)', '6287885590088'],
+        'phone'       => ['Nomor Telepon', '+62 855-5947-4797'],
+        'whatsapp'    => ['Nomor WhatsApp CS (Tanpa simbol/spasi)', '6285559474797'],
         'email'       => ['Email Resmi', 'orchidcare@orchidbrand.id'],
         'address'     => ['Alamat Lengkap', 'Jongke Tengah No. 30, Sendangadi, Mlati, Sleman, D.I. Yogyakarta'],
         'maps_url'    => ['URL Link Google Maps', 'https://maps.google.com/?q=Sleman,+Yogyakarta'],

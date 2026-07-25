@@ -11,10 +11,10 @@ $facebook     = orchid_opt('facebook', 'https://www.facebook.com/orchidcare.id/'
 $instagram    = orchid_opt('instagram', 'https://www.instagram.com/orchidcareofficial/');
 $youtube      = orchid_opt('youtube', 'https://www.youtube.com/channel/UCrmo5q_w6rBSypc2l1ElY9w');
 
-// Contact Channels
-$wa_produk    = 'https://api.whatsapp.com/send?phone=6282215840088&text=' . rawurlencode('Halo CS Konsultasi Produk Orchid Care, saya berminat dengan produk kimia/biang konsentrat.');
-$wa_keagenan  = 'https://api.whatsapp.com/send?phone=6287885590088&text=' . rawurlencode('Halo CS Keagenan Orchid Care, saya tertarik dengan peluang kemitraan B2B & keagenan.');
-$wa_retail    = 'https://api.whatsapp.com/send?phone=6285559474797&text=' . rawurlencode('Halo CS Retail Orchid Care, saya ingin bertanya mengenai pemesanan produk.');
+// Contact Channels (Single Official Sales Number)
+$wa_produk    = 'https://api.whatsapp.com/send?phone=6285559474797&text=' . rawurlencode('Halo CS Orchid Care, saya berminat dengan produk sabun, parfum laundry, dan biang konsentrat.');
+$wa_keagenan  = 'https://api.whatsapp.com/send?phone=6285559474797&text=' . rawurlencode('Halo CS Orchid Care, saya tertarik dengan peluang kemitraan B2B & keagenan.');
+$wa_retail    = 'https://api.whatsapp.com/send?phone=6285559474797&text=' . rawurlencode('Halo CS Orchid Care, saya ingin bertanya mengenai pemesanan produk.');
 ?>
 
 <footer class="site-footer" id="kontak" style="background: #0b132b; color: #cbd5e1; font-family: var(--font-sans, 'Inter', sans-serif); padding-top: 4.5rem; position: relative;">
@@ -42,14 +42,14 @@ $wa_retail    = 'https://api.whatsapp.com/send?phone=6285559474797&text=' . rawu
                     </a>
 
                     <p style="color: #94a3b8; font-size: 0.92rem; line-height: 1.65; margin-bottom: 1.25rem; max-width: 400px;">
-                        Lini merek utama dari <a href="https://indotech.id/" target="_blank" rel="noopener" style="color: #ffffff; font-weight: 700; text-decoration: underline;">PT Indotech Berkah Abadi</a> yang berfokus pada produksi &amp; distribusi bahan kimia berkualitas tinggi untuk Perbekalan Kesehatan Rumah Tangga (PKRT), industri <em>laundry</em>, dan perawatan otomotif.
+                        Lini merek utama dari <a href="https://indotech.id/" target="_blank" rel="noopener" style="color: #ffffff; font-weight: 700; text-decoration: underline;">PT Indotech Berkah Abadi</a> yang memproduksi langsung sabun cuci piring, deterjen laundry, sabun pel lantai, parfum wewangian, hingga biang konsentrat 1kg jadi 15L.
                     </p>
 
                     <!-- Sertifikasi & Inovasi Badges -->
                     <div class="cert-badges" style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
-                        <span style="background: #1e293b; color: #38bdf8; border: 1px solid #334155; padding: 0.3rem 0.75rem; border-radius: 50px; font-size: 0.72rem; font-weight: 700;">BPOM</span>
-                        <span style="background: #1e293b; color: #38bdf8; border: 1px solid #334155; padding: 0.3rem 0.75rem; border-radius: 50px; font-size: 0.72rem; font-weight: 700;">HALAL MUI</span>
-                        <span style="background: #1e293b; color: #38bdf8; border: 1px solid #334155; padding: 0.3rem 0.75rem; border-radius: 50px; font-size: 0.72rem; font-weight: 700;">ISO 9001</span>
+                        <span style="background: rgba(56, 189, 248, 0.12); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.35); padding: 0.35rem 0.85rem; border-radius: 50px; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.04em;">BPOM &amp; KEMENKES</span>
+                        <span style="background: rgba(56, 189, 248, 0.12); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.35); padding: 0.35rem 0.85rem; border-radius: 50px; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.04em;">HALAL MUI</span>
+                        <span style="background: rgba(56, 189, 248, 0.12); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.35); padding: 0.35rem 0.85rem; border-radius: 50px; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.04em;">ISO 9001</span>
                     </div>
 
                     <!-- Social Media Links -->
@@ -69,16 +69,16 @@ $wa_retail    = 'https://api.whatsapp.com/send?phone=6285559474797&text=' . rawu
                     </div>
                 </div>
 
-                <!-- ═══ KOLOM 2: NAVIGASI PRODUK (4 KATEGORI UTAMA) ═══ -->
+                <!-- ═══ KOLOM 2: NAVIGASI PRODUK (6 KATEGORI UTAMA) ═══ -->
                 <div class="footer-nav-col">
                     <h4 style="font-size: 0.8rem; font-weight: 700; color: #94a3b8; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1.5rem;">KATEGORI PRODUK</h4>
                     <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.85rem;">
-                        <li><a href="<?php echo esc_url(home_url('/produk?kategori=perawatan-laundry')); ?>" style="color: #cbd5e1; text-decoration: none; font-size: 0.93rem; transition: color 0.2s;">Perawatan Laundry</a></li>
-                        <li><a href="<?php echo esc_url(home_url('/produk?kategori=home-care')); ?>" style="color: #cbd5e1; text-decoration: none; font-size: 0.93rem; transition: color 0.2s;">Rumah Tangga</a></li>
-                        <li><a href="<?php echo esc_url(home_url('/produk?kategori=perawatan-otomotif')); ?>" style="color: #cbd5e1; text-decoration: none; font-size: 0.93rem; transition: color 0.2s;">Perawatan Otomotif</a></li>
-                        <li><a href="<?php echo esc_url(home_url('/produk?kategori=biang-konsentrat')); ?>" style="color: #88C425; text-decoration: none; font-size: 0.93rem; font-weight: 600; transition: color 0.2s;">Biang Konsentrat</a></li>
-                        <li><a href="<?php echo esc_url(home_url('/produk')); ?>" style="color: #cbd5e1; text-decoration: none; font-size: 0.93rem; transition: color 0.2s;">Katalog Produk</a></li>
-                        <li><a href="<?php echo esc_url(home_url('/blog')); ?>" style="color: #cbd5e1; text-decoration: none; font-size: 0.93rem; transition: color 0.2s;">Artikel &amp; Edukasi</a></li>
+                        <li><a href="<?php echo esc_url(home_url('/produk?kategori=sabun-laundry')); ?>" style="color: #cbd5e1; text-decoration: none; font-size: 0.93rem; transition: color 0.2s;">Laundry Care</a></li>
+                        <li><a href="<?php echo esc_url(home_url('/produk?kategori=malabeez-perfume')); ?>" style="color: #cbd5e1; text-decoration: none; font-size: 0.93rem; transition: color 0.2s;">Malabeez Perfume</a></li>
+                        <li><a href="<?php echo esc_url(home_url('/produk?kategori=sabun-pel-homecare')); ?>" style="color: #cbd5e1; text-decoration: none; font-size: 0.93rem; transition: color 0.2s;">Home Care</a></li>
+                        <li><a href="<?php echo esc_url(home_url('/produk?kategori=paket-biang-sabun')); ?>" style="color: #88C425; text-decoration: none; font-size: 0.93rem; font-weight: 700; transition: color 0.2s;">Biang Konsentrat</a></li>
+                        <li><a href="<?php echo esc_url(home_url('/produk?kategori=automotive-care')); ?>" style="color: #cbd5e1; text-decoration: none; font-size: 0.93rem; transition: color 0.2s;">Automotive Care</a></li>
+                        <li><a href="<?php echo esc_url(home_url('/produk?kategori=sanitasi-disinfektan')); ?>" style="color: #cbd5e1; text-decoration: none; font-size: 0.93rem; transition: color 0.2s;">Sanitasi Care</a></li>
                     </ul>
                 </div>
 
@@ -133,24 +133,12 @@ $wa_retail    = 'https://api.whatsapp.com/send?phone=6285559474797&text=' . rawu
 
                     <div>
                         <div style="font-size: 0.75rem; font-weight: 800; color: #ffffff; letter-spacing: 0.05em; margin-bottom: 0.5rem;">LAYANAN WHATSAPP</div>
-                        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.45rem; font-size: 0.88rem;">
+                        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.95rem;">
                             <li>
-                                <a href="<?php echo esc_url($wa_produk); ?>" target="_blank" rel="noopener" style="color: #38bdf8; text-decoration: none; font-weight: 600;">
-                                    +62 822-1584-0088
-                                </a>
-                                <span style="color: #94a3b8;"> ( CS Konsultasi Produk )</span>
-                            </li>
-                            <li>
-                                <a href="<?php echo esc_url($wa_keagenan); ?>" target="_blank" rel="noopener" style="color: #38bdf8; text-decoration: none; font-weight: 600;">
-                                    +62 878-8559-0088
-                                </a>
-                                <span style="color: #94a3b8;"> ( CS Keagenan &amp; B2B )</span>
-                            </li>
-                            <li>
-                                <a href="<?php echo esc_url($wa_retail); ?>" target="_blank" rel="noopener" style="color: #38bdf8; text-decoration: none; font-weight: 600;">
+                                <a href="<?php echo esc_url($wa_produk); ?>" target="_blank" rel="noopener" style="color: #38bdf8; text-decoration: none; font-weight: 700; font-size: 1.05rem;">
                                     +62 855-5947-4797
                                 </a>
-                                <span style="color: #94a3b8;"> ( CS Retail Produk )</span>
+                                <span style="color: #94a3b8; display: block; font-size: 0.85rem; margin-top: 0.2rem;"> ( CS Penjualan Produk &amp; Kemitraan )</span>
                             </li>
                         </ul>
                     </div>

@@ -49,7 +49,7 @@ function orchid_enqueue() {
     // Main JS
     wp_enqueue_script('orchid-main', ORCHID_URI . '/assets/js/main.js', [], filemtime(ORCHID_DIR . '/assets/js/main.js'), true);
 
-    $whatsapp = orchid_opt('whatsapp', '6287885590088');
+    $whatsapp = orchid_opt('whatsapp', '6285559474797');
     $wa_num   = preg_replace('/[^0-9]/', '', $whatsapp);
 
     wp_localize_script('orchid-main', 'orchidData', [

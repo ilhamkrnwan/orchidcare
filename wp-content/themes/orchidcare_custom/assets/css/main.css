@@ -1929,5 +1929,109 @@ body.admin-bar .site-header {
     margin-top: 0 !important;
 }
 
+/* ==========================================================================
+   PAGINATION STYLING (Candy-Pop Modern Pills & Nav Links)
+   ========================================================================== */
+.pagination-wrap {
+    margin-top: 3.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.navigation.pagination,
+.wp-pagenavi,
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.navigation.pagination .screen-reader-text {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+.nav-links,
+.pagination .nav-links {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0.5rem 0.85rem;
+    background: #ffffff;
+    border-radius: 999px;
+    border: 1px solid rgba(22, 54, 30, 0.1);
+    box-shadow: 0 6px 20px rgba(22, 54, 30, 0.05);
+}
+.page-numbers {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.5rem;
+    height: 2.5rem;
+    padding: 0 0.85rem;
+    border-radius: 999px;
+    font-family: var(--font-display, 'Baloo 2', sans-serif);
+    font-weight: 700;
+    font-size: 0.92rem;
+    color: #16361E;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    background: transparent;
+    border: 1px solid transparent;
+}
+.page-numbers:hover:not(.current):not(.dots) {
+    background: #F5FAF0;
+    color: var(--orchid, #D81B80);
+    border-color: rgba(216, 27, 128, 0.2);
+    transform: translateY(-2px);
+}
+.page-numbers.current {
+    background: #16361E;
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(22, 54, 30, 0.25);
+}
+.page-numbers.prev,
+.page-numbers.next {
+    padding: 0 1.25rem;
+    background: #fafafa;
+    border: 1px solid rgba(22, 54, 30, 0.1);
+    font-weight: 800;
+}
+.page-numbers.prev:hover,
+.page-numbers.next:hover {
+    background: var(--orchid, #D81B80);
+    color: #ffffff;
+    border-color: var(--orchid, #D81B80);
+    box-shadow: 0 4px 12px rgba(216, 27, 128, 0.3);
+}
+.page-numbers.dots {
+    color: rgba(22, 54, 30, 0.4);
+    min-width: 1.8rem;
+    pointer-events: none;
+}
+
+/* ── Hide stray default WooCommerce template output on custom single product ── */
+.single-product-page .woocommerce-product-gallery,
+.single-product-page .summary.entry-summary,
+.single-product-page .woocommerce-tabs,
+.single-product-page .related.products,
+.single-product-page .product_meta,
+.single-product-page p.price,
+.single-product-page span.price,
+.single-product-page form.cart,
+.single-product-page button.single_add_to_cart_button {
+    display: none !important;
+}
+
 
 

@@ -175,12 +175,15 @@ if (have_posts()) : while (have_posts()) : the_post();
 
             <!-- FULL DESCRIPTION & MIXING INSTRUCTIONS -->
             <div class="reveal" style="background: #fafafa; border: 1px solid rgba(22, 54, 30, 0.08); border-radius: 1.75rem; padding: 2.5rem; margin-bottom: 3.5rem;">
-                <span class="chip-tag chip-tag--mint" style="margin-bottom: 0.75rem; display: inline-block;">PANDUAN &amp; APELIKASI</span>
+                <span class="chip-tag chip-tag--mint" style="margin-bottom: 0.75rem; display: inline-block;">PANDUAN &amp; APLIKASI</span>
                 <h2 style="font-family: var(--font-display, 'Baloo 2', sans-serif); font-size: 1.75rem; color: #16361E; font-weight: 800; margin-bottom: 1.25rem;">
                     Deskripsi Lengkap &amp; Petunjuk Pemakaian
                 </h2>
                 <div style="color: rgba(22, 54, 30, 0.82); font-size: 1rem; line-height: 1.75;">
-                    <?php the_content(); ?>
+                    <?php 
+                    $content = get_the_content();
+                    echo wpautop(do_shortcode($content)); 
+                    ?>
                 </div>
             </div>
 

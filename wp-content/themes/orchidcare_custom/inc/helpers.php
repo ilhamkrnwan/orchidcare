@@ -79,6 +79,9 @@ if (!function_exists('orchid_breadcrumbs')) {
         } elseif (is_page()) {
             echo '<span class="sep">/</span>';
             echo '<span class="current">' . esc_html(get_the_title()) . '</span>';
+        } elseif (is_404()) {
+            echo '<span class="sep">/</span>';
+            echo '<span class="current">404 Not Found</span>';
         }
 
         echo '</nav>';

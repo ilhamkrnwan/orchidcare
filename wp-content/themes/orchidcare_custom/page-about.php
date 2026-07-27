@@ -47,6 +47,11 @@ $wa_url = orchid_wa_url('Halo Orchid Care, saya ingin bertanya tentang profil br
         grid-template-columns: 1fr !important;
     }
 }
+.btn-santap-card:hover {
+    background: #D6F29C !important;
+    color: #16361E !important;
+    transform: translateY(-2px);
+}
 </style>
 
 <main id="main-content" class="about-page">
@@ -58,46 +63,52 @@ $wa_url = orchid_wa_url('Halo Orchid Care, saya ingin bertanya tentang profil br
         'Orchid Care adalah brand resmi Perbekalan Kesehatan Rumah Tangga (PKRT), pembersih serbaguna, deterjen laundry kiloan, parfum wewangian linen, dan biang konsentrat hemat ongkir. Seluruh lini produk diproduksi langsung oleh <a href="https://indotech.id/" target="_blank" rel="noopener" style="color: #16361E; font-weight: 800; text-decoration: underline;">PT Indotech Berkah Abadi</a> di Sleman, D.I. Yogyakarta.'
     ); ?>
 
-    <!-- ═══ 2. BRAND STORY & PROFIL PERJALANAN BRAND ═══ -->
+    <!-- ═══ 2. BRAND STORY & PROFIL PERJALANAN BRAND (STYLE SANTAP.APP HERO CARD) ═══ -->
     <section class="about-section" style="padding: 4.5rem 0; background: #ffffff; border-bottom: 1px solid rgba(22, 54, 30, 0.06);">
         <div class="container">
             
-            <!-- Grid 2 Kolom (Konten Teks & Ilustrasi Gambar indotech.png Clean Tanpa Padding) -->
-            <div class="feature-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3.5rem; align-items: center;">
+            <!-- Santap.app Style Overlay Image Hero Card -->
+            <div class="santap-hero-card reveal" style="position: relative; width: 100%; border-radius: 1.75rem; overflow: hidden; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12); min-height: 480px; display: flex; align-items: flex-end;">
                 
-                <!-- Kolom Teks Profil -->
-                <div class="reveal">
-                    <span class="chip-tag chip-tag--coral" style="margin-bottom: 0.75rem; display: inline-block;">PROFIL &amp; PERJALANAN BRAND</span>
+                <!-- Background Image -->
+                <img 
+                    src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/indotech1.png'); ?>" 
+                    alt="Fasilitas Pabrik PT Indotech Berkah Abadi Produsen Orchid Care Yogyakarta" 
+                    style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center;" 
+                    loading="lazy"
+                >
+                
+                <!-- Dark Gradient Overlay for Contrast & Readability -->
+                <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(16, 28, 20, 0.35) 0%, rgba(16, 28, 20, 0.78) 55%, rgba(10, 20, 14, 0.94) 100%); pointer-events: none;"></div>
+
+                <!-- Content Overlaid Inside Image -->
+                <div style="position: relative; z-index: 2; width: 100%; padding: clamp(2rem, 5vw, 4.25rem) clamp(1.5rem, 5vw, 4rem);">
                     
-                    <h2 style="font-family: var(--font-display, 'Baloo 2', sans-serif); font-size: clamp(1.8rem, 4vw, 2.5rem); color: #16361E; line-height: 1.25; margin-bottom: 1rem; font-weight: 800;">
+                    <!-- Santap.app Style Pill Badge with Accent Dot -->
+                    <div style="display: inline-flex; align-items: center; gap: 0.55rem; background: rgba(0, 0, 0, 0.45); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.18); padding: 0.45rem 1rem; border-radius: 999px; margin-bottom: 1.5rem;">
+                        <span style="width: 7px; height: 7px; border-radius: 50%; background: #FF5E3A; display: inline-block;"></span>
+                        <span style="font-family: var(--font-mono, monospace); font-size: 0.72rem; font-weight: 800; color: #ffffff; letter-spacing: 0.08em; text-transform: uppercase;">
+                            PROFIL &amp; PERJALANAN BRAND
+                        </span>
+                    </div>
+
+                    <!-- Large White Display Heading -->
+                    <h2 style="font-family: var(--font-display, 'Baloo 2', sans-serif); font-size: clamp(1.8rem, 4.2vw, 2.85rem); color: #ffffff; line-height: 1.22; margin-bottom: 1.25rem; font-weight: 800; max-width: 900px; text-shadow: 0 2px 10px rgba(0,0,0,0.3);">
                         10+ Tahun Menjaga Mutu &amp; Kepercayaan Mitra Indonesia
                     </h2>
 
-                    <p style="color: rgba(22, 54, 30, 0.8); font-size: 1rem; line-height: 1.68; margin-bottom: 1.25rem;">
-                        Berpusat di Sleman, D.I. Yogyakarta, <strong>Orchid Care</strong> berkembang sebagai supplier dan produsen tangan pertama Perbekalan Kesehatan Rumah Tangga (PKRT). Kami melayani kebutuhan laundry profesional, rumah tangga, instansi, hingga mitra agen grosir se-Indonesia.
+                    <!-- White Paragraph Text -->
+                    <p style="color: rgba(255, 255, 255, 0.92); font-size: clamp(0.95rem, 1.6vw, 1.1rem); line-height: 1.7; margin-bottom: 1.75rem; max-width: 840px; font-weight: 400; text-shadow: 0 1px 4px rgba(0,0,0,0.4);">
+                        Berpusat di Sleman, D.I. Yogyakarta, <strong>Orchid Care</strong> (PT Indotech Berkah Abadi) berkembang sebagai supplier dan produsen tangan pertama Perbekalan Kesehatan Rumah Tangga (PKRT). Setiap produk diracik presisi di laboratorium teruji, memiliki izin edar resmi Kemenkes RI, serta tersertifikasi Halal MUI untuk memberikan keamanan penuh bagi penggunaan harian dan usaha.
                     </p>
 
-                    <p style="color: rgba(22, 54, 30, 0.8); font-size: 1rem; line-height: 1.68; margin-bottom: 1.5rem;">
-                        Setiap produk diracik presisi di laboratorium teruji, memiliki izin edar resmi Kemenkes RI, serta tersertifikasi Halal MUI untuk memberikan keamanan penuh bagi penggunaan harian dan usaha.
-                    </p>
-
+                    <!-- CTA Button Inside Image -->
                     <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                        <a href="<?php echo esc_url($wa_url); ?>" target="_blank" rel="noopener" class="btn-search-pill" style="font-size: 0.95rem; padding: 0.75rem 1.8rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; background: #16361E; color: #ffffff; font-weight: 700; border-radius: 999px;">
+                        <a href="<?php echo esc_url($wa_url); ?>" target="_blank" rel="noopener" class="btn-santap-card" style="font-size: 0.95rem; padding: 0.85rem 1.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.6rem; background: #ffffff; color: #16361E; font-weight: 800; border-radius: 999px; box-shadow: 0 8px 25px rgba(0,0,0,0.25); transition: all 0.25s ease;">
                             <span>Hubungi Tim Kemitraan WA &rarr;</span>
                         </a>
                     </div>
-                </div>
 
-                <!-- Kolom Ilustrasi Gambar indotech1.png (Clean, Persegi, Tanpa Padding) -->
-                <div class="reveal" style="text-align: center;">
-                    <div style="position: relative; width: 100%; max-width: 500px; border-radius: 1.25rem; overflow: hidden; box-shadow: 0 12px 35px rgba(22, 54, 30, 0.1); border: 1px solid rgba(22, 54, 30, 0.08); background: #fafafa; margin: 0 auto;">
-                        <img 
-                            src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/indotech1.png'); ?>" 
-                            alt="Fasilitas Pabrik PT Indotech Berkah Abadi Produsen Orchid Care Yogyakarta" 
-                            style="width: 100%; height: 100%; display: block; object-fit: cover; border-radius: 1.25rem;" 
-                            loading="lazy"
-                        >
-                    </div>
                 </div>
 
             </div>
@@ -305,55 +316,68 @@ $wa_url = orchid_wa_url('Halo Orchid Care, saya ingin bertanya tentang profil br
         </div>
     </section>
 
-    <!-- ═══ 4. PENJELASAN AWAM INDUK PERUSAHAAN (PT INDOTECH) & EKOSISTEM BRAND ═══ -->
+    <!-- ═══ 4. INDUK PERUSAHAAN (PT INDOTECH) & EKOSISTEM BRAND (STYLE SANTAP.APP HERO CARD) ═══ -->
     <section class="feature-section" style="padding: 4.5rem 0; background: #ffffff; border-bottom: 1px solid rgba(22, 54, 30, 0.06);">
         <div class="container">
             
-            <!-- 2-Column Feature Grid (Persis Seperti Section Kategori di Beranda / Index) -->
-            <div class="feature-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3.5rem; align-items: center; margin-bottom: 3.5rem;">
+            <!-- Santap.app Style Overlay Image Hero Card -->
+            <div class="santap-hero-card reveal" style="position: relative; width: 100%; border-radius: 1.75rem; overflow: hidden; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12); min-height: 500px; display: flex; align-items: flex-end; margin-bottom: 3.5rem;">
                 
-                <!-- Left Visual Image (Zero Padding, Rounded 1.75rem, Clean Box Shadow) -->
-                <div class="feature-visual reveal" style="position: relative;">
-                    <div style="border-radius: 1.75rem; overflow: hidden; box-shadow: 0 16px 40px rgba(22, 54, 30, 0.12); border: 1px solid rgba(22, 54, 30, 0.08); background: #ffffff;">
-                        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/indotech.png'); ?>" 
-                             alt="Profil Production Plant PT Indotech Berkah Abadi Sleman Yogyakarta" 
-                             loading="lazy" 
-                             style="width: 100%; height: auto; display: block; object-fit: cover; border-radius: 1.75rem;">
-                    </div>
-                </div>
+                <!-- Background Image -->
+                <img 
+                    src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/indotech.png'); ?>" 
+                    alt="Profil Production Plant PT Indotech Berkah Abadi Sleman Yogyakarta" 
+                    style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center;" 
+                    loading="lazy"
+                >
+                
+                <!-- Dark Gradient Overlay for Ultra-High Contrast -->
+                <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(16, 28, 20, 0.35) 0%, rgba(16, 28, 20, 0.78) 55%, rgba(10, 20, 14, 0.94) 100%); pointer-events: none;"></div>
 
-                <!-- Right Feature Content (Text, Description, Bullets, CTA Button) -->
-                <div class="feature-content reveal">
-                    <span class="chip-tag chip-tag--butter" style="margin-bottom: 0.75rem; display: inline-block;">INDUK PERUSAHAAN &amp; MANUFAKTUR</span>
+                <!-- Content Overlaid Inside Image -->
+                <div style="position: relative; z-index: 2; width: 100%; padding: clamp(2rem, 5vw, 4.25rem) clamp(1.5rem, 5vw, 4rem);">
                     
-                    <h2 class="feature-title" style="font-family: var(--font-display, 'Baloo 2', sans-serif); font-size: clamp(1.8rem, 4vw, 2.4rem); color: #16361E; line-height: 1.2; margin-bottom: 1rem; font-weight: 800;">
+                    <!-- Santap.app Style Pill Badge with Accent Dot -->
+                    <div style="display: inline-flex; align-items: center; gap: 0.55rem; background: rgba(0, 0, 0, 0.45); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.18); padding: 0.45rem 1rem; border-radius: 999px; margin-bottom: 1.5rem;">
+                        <span style="width: 7px; height: 7px; border-radius: 50%; background: #C0E812; display: inline-block;"></span>
+                        <span style="font-family: var(--font-mono, monospace); font-size: 0.72rem; font-weight: 800; color: #ffffff; letter-spacing: 0.08em; text-transform: uppercase;">
+                            INDUK PERUSAHAAN &amp; MANUFAKTUR
+                        </span>
+                    </div>
+
+                    <!-- Large White Display Heading -->
+                    <h2 style="font-family: var(--font-display, 'Baloo 2', sans-serif); font-size: clamp(1.8rem, 4.2vw, 2.85rem); color: #ffffff; line-height: 1.22; margin-bottom: 1.25rem; font-weight: 800; max-width: 900px; text-shadow: 0 2px 10px rgba(0,0,0,0.3);">
                         Didukung Fasilitas Pabrik &amp; Riset PT Indotech Berkah Abadi
                     </h2>
-                    
-                    <p class="feature-desc" style="color: rgba(22, 54, 30, 0.78); font-size: 1rem; line-height: 1.65; margin-bottom: 1.25rem;">
-                        Seluruh produk Orchid Care diproduksi di fasilitas operasional pabrik dan laboratorium riset milik <a href="https://indotech.id/" target="_blank" rel="noopener" style="color: #16361E; font-weight: 800; text-decoration: underline;">PT Indotech Berkah Abadi</a> (Sleman, Yogyakarta). Sinergi ini menjamin garansi stok rutin, kualitas stabil, &amp; harga grosir tangan pertama.
+
+                    <!-- White Paragraph Description -->
+                    <p style="color: rgba(255, 255, 255, 0.92); font-size: clamp(0.95rem, 1.6vw, 1.08rem); line-height: 1.68; margin-bottom: 1.5rem; max-width: 850px; text-shadow: 0 1px 4px rgba(0,0,0,0.4);">
+                        Seluruh produk Orchid Care diproduksi di fasilitas operasional pabrik dan laboratorium riset milik <a href="https://indotech.id/" target="_blank" rel="noopener" style="color: #D6F29C; font-weight: 800; text-decoration: underline;">PT Indotech Berkah Abadi</a> (Sleman, Yogyakarta). Sinergi ini menjamin garansi stok rutin, kualitas stabil, &amp; harga grosir tangan pertama.
                     </p>
 
-                    <ul class="feature-list" style="list-style: none; padding: 0; margin: 0 0 1.5rem 0; display: flex; flex-direction: column; gap: 0.75rem; color: #16361E; font-size: 0.95rem;">
+                    <!-- Feature Bullet Points -->
+                    <ul style="list-style: none; padding: 0; margin: 0 0 1.75rem 0; display: flex; flex-direction: column; gap: 0.75rem; color: rgba(255, 255, 255, 0.95); font-size: clamp(0.9rem, 1.4vw, 1rem); max-width: 850px;">
                         <li style="display: flex; align-items: flex-start; gap: 0.75rem;">
-                            <span style="width: 8px; height: 8px; background: #88C425; border-radius: 50%; display: inline-block; margin-top: 0.5rem; flex-shrink: 0;"></span>
-                            <span><strong>Pabrik Operasional Sleman:</strong> Produksi berkapasitas besar untuk pasokan rutin mitra se-Indonesia.</span>
+                            <span style="width: 8px; height: 8px; background: #D6F29C; border-radius: 50%; display: inline-block; margin-top: 0.5rem; flex-shrink: 0; box-shadow: 0 0 8px #D6F29C;"></span>
+                            <span><strong style="color: #ffffff;">Pabrik Operasional Sleman:</strong> Produksi berkapasitas besar untuk pasokan rutin mitra se-Indonesia.</span>
                         </li>
                         <li style="display: flex; align-items: flex-start; gap: 0.75rem;">
-                            <span style="width: 8px; height: 8px; background: #88C425; border-radius: 50%; display: inline-block; margin-top: 0.5rem; flex-shrink: 0;"></span>
-                            <span><strong>Standar Kemenkes RI &amp; Halal MUI:</strong> Formulasi teruji laboratorium terakreditasi &amp; aman untuk harian.</span>
+                            <span style="width: 8px; height: 8px; background: #D6F29C; border-radius: 50%; display: inline-block; margin-top: 0.5rem; flex-shrink: 0; box-shadow: 0 0 8px #D6F29C;"></span>
+                            <span><strong style="color: #ffffff;">Standar Kemenkes RI &amp; Halal MUI:</strong> Formulasi teruji laboratorium terakreditasi &amp; aman untuk harian.</span>
                         </li>
                         <li style="display: flex; align-items: flex-start; gap: 0.75rem;">
-                            <span style="width: 8px; height: 8px; background: #88C425; border-radius: 50%; display: inline-block; margin-top: 0.5rem; flex-shrink: 0;"></span>
-                            <span><strong>Ekosistem Terintegrasi:</strong> Terhubung langsung dengan riset laboratorium &amp; unit distribusi grosir.</span>
+                            <span style="width: 8px; height: 8px; background: #D6F29C; border-radius: 50%; display: inline-block; margin-top: 0.5rem; flex-shrink: 0; box-shadow: 0 0 8px #D6F29C;"></span>
+                            <span><strong style="color: #ffffff;">Ekosistem Terintegrasi:</strong> Terhubung langsung dengan riset laboratorium &amp; unit distribusi grosir.</span>
                         </li>
                     </ul>
 
-                    <div class="feature-actions">
-                        <a href="https://indotech.id/" target="_blank" rel="noopener" class="btn-search-pill" style="text-decoration: none; padding: 0.8rem 1.8rem; background: #16361E; color: #ffffff; display: inline-flex; align-items: center; gap: 0.5rem; border-radius: 999px; font-weight: 700;">
+                    <!-- CTA Button Inside Image -->
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <a href="https://indotech.id/" target="_blank" rel="noopener" class="btn-santap-card" style="font-size: 0.95rem; padding: 0.85rem 1.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.6rem; background: #ffffff; color: #16361E; font-weight: 800; border-radius: 999px; box-shadow: 0 8px 25px rgba(0,0,0,0.25); transition: all 0.25s ease;">
                             <span>Kunjungi Situs PT Indotech (indotech.id) &rarr;</span>
                         </a>
                     </div>
+
                 </div>
 
             </div>

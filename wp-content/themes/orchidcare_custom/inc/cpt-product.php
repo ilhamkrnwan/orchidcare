@@ -70,7 +70,9 @@ function orchid_seed_default_categories() {
             'Perawatan Laundry' => 'perawatan-laundry',
             'Home Care'         => 'home-care',
             'Perawatan Otomotif'=> 'perawatan-otomotif',
-            'Bahan Konsentrat'  => 'biang-konsentrat',
+            'Biang Konsentrat'  => 'biang-konsentrat',
+            'Malabeez Perfume'  => 'malabeez-perfume',
+            'Sanitasi Care'     => 'sanitasi-care',
         ];
 
         foreach ($default_cats as $name => $slug) {

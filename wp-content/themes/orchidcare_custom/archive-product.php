@@ -11,7 +11,7 @@ $current_cat = isset($_GET['kategori']) ? sanitize_text_field($_GET['kategori'])
 
 $args = [
     'post_type'      => 'product',
-    'posts_per_page' => 12,
+    'posts_per_page' => -1,
     'post_status'    => 'publish',
 ];
 
@@ -109,40 +109,45 @@ $wa_general_url = orchid_wa_url('Halo Orchid Care, saya ingin bertanya tentang k
     <section class="catalog-section" style="padding: 4.5rem 0; background: #ffffff; border-bottom: 1px solid rgba(22, 54, 30, 0.06);">
         <div class="container">
             
-            <!-- Category Filter Bar -->
+            <!-- Category Filter Bar (Dynamic Terms Query) -->
+            <?php
+            $uncat = get_term_by('slug', 'uncategorized', 'product_cat');
+            $exclude_ids = $uncat ? [$uncat->term_id] : [];
+            $all_categories = get_terms([
+                'taxonomy'   => 'product_cat',
+                'hide_empty' => false,
+                'exclude'    => $exclude_ids,
+                'orderby'    => 'name',
+                'order'      => 'ASC',
+            ]);
+            ?>
             <div class="catalog-filter-bar reveal">
                 <a href="<?php echo esc_url(home_url('/produk')); ?>" class="filter-tab <?php echo empty($current_cat) ? 'is-active' : ''; ?>">
                     Semua Produk
                 </a>
-                <a href="<?php echo esc_url(home_url('/produk?kategori=sabun-laundry')); ?>" class="filter-tab <?php echo ($current_cat === 'sabun-laundry') ? 'is-active' : ''; ?>">
-                    Laundry Care
-                </a>
-                <a href="<?php echo esc_url(home_url('/produk?kategori=malabeez-perfume')); ?>" class="filter-tab <?php echo ($current_cat === 'malabeez-perfume') ? 'is-active' : ''; ?>">
-                    Malabeez Perfume
-                </a>
-                <a href="<?php echo esc_url(home_url('/produk?kategori=sabun-pel-homecare')); ?>" class="filter-tab <?php echo ($current_cat === 'sabun-pel-homecare') ? 'is-active' : ''; ?>">
-                    Home Care
-                </a>
-                <a href="<?php echo esc_url(home_url('/produk?kategori=sanitasi-disinfektan')); ?>" class="filter-tab <?php echo ($current_cat === 'sanitasi-disinfektan') ? 'is-active' : ''; ?>">
-                    Sanitasi Care
-                </a>
-                <a href="<?php echo esc_url(home_url('/produk?kategori=automotive-care')); ?>" class="filter-tab <?php echo ($current_cat === 'automotive-care') ? 'is-active' : ''; ?>">
-                    Automotive Care
-                </a>
-                <a href="<?php echo esc_url(home_url('/produk?kategori=paket-biang-sabun')); ?>" class="filter-tab <?php echo ($current_cat === 'paket-biang-sabun') ? 'is-active' : ''; ?>">
-                    Biang Konsentrat (1kg &rarr; 15L)
-                </a>
+                <?php if (!empty($all_categories) && !is_wp_error($all_categories)) : ?>
+                    <?php foreach ($all_categories as $cat) : ?>
+                        <a href="<?php echo esc_url(home_url('/produk?kategori=' . $cat->slug)); ?>"
+                           class="filter-tab <?php echo ($current_cat === $cat->slug) ? 'is-active' : ''; ?>">
+                            <?php echo esc_html($cat->name); ?>
+                        </a>
+                    <?php endforeach; ?>
+                <?php endif; ?>
             </div>
 
             <!-- Product Grid -->
             <div class="catalog-grid-layout">
                 <?php if ($product_query->have_posts()) : ?>
                     <?php while ($product_query->have_posts()) : $product_query->the_post(); 
-                        $terms = get_the_terms(get_the_ID(), 'product_cat');
-                        $cat_name = ($terms && !is_wp_error($terms)) ? $terms[0]->name : 'Orchid Care';
-                        $wa_msg   = 'Halo Orchid Care, saya berminat bertanya tentang produk: ' . get_the_title() . '. Mohon info penawaran harganya.';
-                        $wa_url   = orchid_wa_url($wa_msg);
-                        $thumb_url = has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'large') : get_template_directory_uri() . '/assets/img/product-laundry.png';
+                        $raw_terms = get_the_terms(get_the_ID(), 'product_cat');
+                        $terms = ($raw_terms && !is_wp_error($raw_terms)) ? array_filter($raw_terms, function($t) {
+                            return $t->slug !== 'uncategorized';
+                        }) : [];
+                        $first_term = !empty($terms) ? reset($terms) : null;
+                        $cat_name   = $first_term ? $first_term->name : 'Orchid Care';
+                        $wa_msg     = 'Halo Orchid Care, saya berminat bertanya tentang produk: ' . get_the_title() . '. Mohon info penawaran harganya.';
+                        $wa_url     = orchid_wa_url($wa_msg);
+                        $thumb_url  = has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'large') : get_template_directory_uri() . '/assets/img/product-laundry.png';
                     ?>
                         <article class="catalog-card reveal">
                             <div style="position: relative; height: 220px; overflow: hidden; background: #fafafa;">

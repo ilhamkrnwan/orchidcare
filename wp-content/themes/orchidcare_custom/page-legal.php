@@ -37,57 +37,56 @@ $last_updated = get_the_modified_date('d F Y') ?: '24 Juli 2026';
                         <ul>
                             <li><strong>Cookie Esensial:</strong> Diperlukan agar fungsi utama situs web (seperti navigasi dan preferensi tampilan) dapat berjalan dengan normal.</li>
                             <li><strong>Cookie Performa &amp; Analitik:</strong> Membantu kami memahami bagaimana pengunjung berinteraksi dengan situs web untuk meningkatkan kualitas layanan dan kemudahan navigasi.</li>
-                            <li><strong>Cookie Fungsi Kemitraan:</strong> Mengingat pilihan saluran WhatsApp CS atau produk yang Anda lihat sebelumnya.</li>
+                            <li><strong>Cookie Fungsionalitas:</strong> Mengingat pilihan preferensi penggunaan Anda saat menjelajahi katalog dan layanan situs.</li>
                         </ul>
 
                         <h2>3. Pengelolaan Cookie</h2>
                         <p>Anda memiliki kendali penuh untuk menerima atau menolak cookie melalui pengaturan browser Anda (Google Chrome, Mozilla Firefox, Safari, Microsoft Edge). Namun, perlu diketahui bahwa menonaktifkan cookie esensial dapat mempengaruhi fungsionalitas dan kenyamanan akses di situs kami.</p>
 
-                        <h2>4. Hubungi Kami</h2>
-                        <p>Jika Anda memiliki pertanyaan mengenai penggunaan cookie di situs web ini, silakan hubungi tim kami di <code>indotechberkahabadi@gmail.com</code> atau CS WhatsApp PT Indotech Berkah Abadi di Sleman, D.I. Yogyakarta.</p>
+                        <h2>4. Perubahan Kebijakan &amp; Kontak</h2>
+                        <p>Jika Anda memiliki pertanyaan mengenai penggunaan cookie di situs web ini, silakan hubungi tim kami melalui email <code>indotechberkahabadi@gmail.com</code> atau kontak resmi PT Indotech Berkah Abadi di Sleman, D.I. Yogyakarta.</p>
 
                     <?php elseif (strpos($slug, 'syarat') !== false) : ?>
 
                         <h2>1. Ketentuan Umum</h2>
-                        <p>Syarat &amp; Ketentuan ini mengatur penggunaan layanan dan pembelian produk kimia dari <strong>Orchid Care</strong>, lini merek resmi <strong>PT Indotech Berkah Abadi</strong> (Sleman, D.I. Yogyakarta). Dengan melakukan pemesanan produk retail, grosir, atau mengajukan kemitraan B2B &amp; keagenan, Anda menyetujui ketentuan di bawah ini.</p>
+                        <p>Syarat &amp; Ketentuan ini mengatur akses dan penggunaan situs web resmi <strong>Orchid Care</strong> yang dikelola oleh <strong>PT Indotech Berkah Abadi</strong> (Sleman, D.I. Yogyakarta). Dengan mengakses atau menggunakan situs web ini, Anda menyatakan menyetujui seluruh ketentuan yang berlaku.</p>
 
-                        <h2>2. Spesifikasi Produk &amp; Biang Konsentrat</h2>
-                        <p>Orchid Care memproduksi produk kimia siap pakai dan biang konsentrat (ekstrak 1 kg meracik hingga 15 Liter cairan jadi). Mitra dan pembeli wajib membaca dan mematuhi takaran air serta instruksi peracikan resmi yang kami sediakan untuk memastikan standar kualitas produk tetap optimal.</p>
+                        <h2>2. Penggunaan Layanan &amp; Konten Situs</h2>
+                        <p>Seluruh informasi, materi visual, dan katalog produk yang disajikan di situs ini disediakan untuk tujuan informasi umum dan komunikasi resmi perusahaan. Pengguna wajib menggunakan situs web ini secara sah dan tidak melanggar hukum yang berlaku di Republik Indonesia.</p>
 
-                        <h2>3. Pemesanan, Pembayaran &amp; Pengiriman</h2>
-                        <ul>
-                            <li>Pemesanan resmi dilakukan melalui saluran CS WhatsApp terverifikasi atau agen resmi PT Indotech Berkah Abadi.</li>
-                            <li>Pembayaran harus dilakukan sesuai tagihan invoice resmi yang diterbitkan oleh perusahaan.</li>
-                            <li>Pengiriman bahan cair dan biang konsentrat menggunakan jasa ekspedisi terpercaya dengan pengemasan aman berstandar industri.</li>
-                        </ul>
+                        <h2>3. Pemesanan &amp; Saluran Komunikasi Resmi</h2>
+                        <p>Seluruh komunikasi resmi, konsultasi produk, dan pemesanan informasi dilakukan melalui saluran layanan pelanggan resmi yang terverifikasi (seperti WhatsApp resmi perusahaan dan email resmi PT Indotech Berkah Abadi).</p>
 
-                        <h2>4. Kemitraan B2B &amp; Keagenan</h2>
-                        <p>Setiap agen, reseller, dan mitra distribusi terikat pada kesepakatan harga eceran tertinggi/terendah yang ditetapkan untuk menjaga ekosistem persaingan sehat antar mitra wilayah.</p>
+                        <h2>4. Hak Kekayaan Intelektual (HAKI)</h2>
+                        <p>Logo Orchid Care, desain tampilan situs, teks, grafis, dan merek dagang adalah hak milik eksklusif PT Indotech Berkah Abadi dan dilindungi oleh Undang-Undang Hak Cipta &amp; Merek Dagang Republik Indonesia. Penggunaan tanpa izin tertulis dari perusahaan dilarang keras.</p>
 
-                        <h2>5. Hak Cipta &amp; Merek Dagang</h2>
-                        <p>Logo Orchid Care, desain kemasan, merek biang konsentrat (DeterMat, O'Clean, Arai), serta konten materi pemasaran adalah hak milik eksklusif PT Indotech Berkah Abadi dan dilindungi oleh Undang-Undang Hak Cipta &amp; Merek Republik Indonesia.</p>
+                        <h2>5. Pembatasan Tanggung Jawab</h2>
+                        <p>PT Indotech Berkah Abadi berusaha menjaga keakuratan seluruh informasi di situs ini. Namun, perusahaan tidak bertanggung jawab atas kerugian langsung maupun tidak langsung yang timbul dari kesalahan teknis atau penggunaan situs web di luar kendali perusahaan.</p>
+
+                        <h2>6. Perubahan Ketentuan &amp; Hukum yang Berlaku</h2>
+                        <p>Syarat &amp; Ketentuan ini dapat diperbarui sewaktu-waktu sesuai perkembangan layanan. Ketentuan ini diatur dan ditafsirkan sesuai dengan hukum yang berlaku di Republik Indonesia.</p>
 
                     <?php else : ?>
 
                         <h2>1. Komitmen Privasi</h2>
-                        <p><strong>PT Indotech Berkah Abadi</strong> berkomitmen penuh untuk melindungi kerahasiaan dan keamanan data pribadi pengguna situs web <strong>Orchid Care</strong>. Kebijakan Privasi ini menjelaskan bagaimana kami mengumpulkan, menggunakan, dan menjaga data Anda.</p>
+                        <p><strong>PT Indotech Berkah Abadi</strong> berkomitmen penuh untuk melindungi kerahasiaan dan keamanan data pribadi pengunjung situs web <strong>Orchid Care</strong>. Kebijakan Privasi ini menjelaskan bagaimana kami mengelola data yang Anda berikan.</p>
 
-                        <h2>2. Data yang Kami Kumpulkan</h2>
-                        <p>Kami mengumpulkan informasi yang Anda berikan secara sukarela saat menghubungi kami via WhatsApp atau formulir kontak, seperti: Nama, Nomor Telepon/WhatsApp, Alamat Email, Alamat Pengiriman, serta rincian kebutuhan produk atau peluang keagenan Anda.</p>
+                        <h2>2. Pengumpulan Informasi</h2>
+                        <p>Kami mengumpulkan informasi yang Anda berikan secara sukarela saat menghubungi kami via saluran kontak resmi atau WhatsApp, seperti: Nama, Nomor Telepon/WhatsApp, Alamat Email, serta rincian pertanyaan atau kebutuhan informasi Anda.</p>
 
                         <h2>3. Penggunaan Informasi</h2>
-                        <p>Data pribadi Anda hanya digunakan untuk:</p>
+                        <p>Informasi yang Anda berikan digunakan secara terbatas untuk:</p>
                         <ul>
-                            <li>Memproses pesanan produk dan konsultasi teknis peracikan biang.</li>
-                            <li>Menghubungi Anda terkait peluang kemitraan B2B, keagenan, atau penawaran khusus.</li>
-                            <li>Meningkatkan kualitas produk kimia dan layanan purna jual dari Orchid Care.</li>
+                            <li>Merespons pertanyaan, permintaan informasi produk, atau konsultasi Anda.</li>
+                            <li>Keperluan komunikasi resmi perusahaan terkait layanan pelanggan.</li>
+                            <li>Meningkatkan kualitas dan kenyamanan navigasi di situs web kami.</li>
                         </ul>
 
-                        <h2>4. Keamanan &amp; Kerahasiaan Data</h2>
-                        <p>Kami tidak akan pernah menjual, menyewakan, atau membagikan informasi pribadi Anda kepada pihak ketiga mana pun tanpa persetujuan Anda, kecuali diwajibkan oleh ketentuan hukum Republik Indonesia yang berlaku.</p>
+                        <h2>4. Kerahasiaan &amp; Keamanan Data</h2>
+                        <p>Kami menjaga kerahasiaan data Anda dan tidak akan membagikan, menjual, atau menyewakan informasi pribadi Anda kepada pihak ketiga mana pun tanpa izin dari Anda, kecuali diwajibkan oleh ketentuan hukum yang berlaku.</p>
 
                         <h2>5. Pertanyaan &amp; Kontak Privasi</h2>
-                        <p>Jika Anda ingin memperbarui atau menghapus data pribadi Anda dari sistem kami, silakan hubungi tim kami melalui email <code>indotechberkahabadi@gmail.com</code> atau kantor operasional kami di Sleman, D.I. Yogyakarta.</p>
+                        <p>Jika Anda memiliki pertanyaan terkait privasi atau ingin memperbarui informasi Anda, silakan hubungi kami melalui email <code>indotechberkahabadi@gmail.com</code> atau alamat operasional kami di Sleman, D.I. Yogyakarta.</p>
 
                     <?php endif; ?>
 

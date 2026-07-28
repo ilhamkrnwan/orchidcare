@@ -2202,5 +2202,16 @@ body.admin-bar .site-header {
     }
 }
 
+/* ── Broken Image Fallback Placeholder ────────────────────────────────────── */
+img.img-fallback-placeholder {
+    object-fit: contain !important;
+    background: linear-gradient(135deg, #F5FAF0 0%, #EAF8D0 100%) !important;
+    border: 2px dashed rgba(136, 196, 37, 0.45) !important;
+    padding: 1.5rem !important;
+    max-height: 280px !important;
+    width: 100% !important;
+    border-radius: 1.25rem !important;
+}
+
 
 

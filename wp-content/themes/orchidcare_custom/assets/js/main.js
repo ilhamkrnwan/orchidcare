@@ -104,5 +104,22 @@
         biangInput.addEventListener('input', calculateBiang);
         calculateBiang();
     }
+
+    // ── Global Broken Image Auto Fallback Placeholder ─────────────
+    window.addEventListener('error', function (e) {
+        var target = e.target;
+        if (target && target.tagName === 'IMG' && !target.dataset.hasFallback) {
+            target.dataset.hasFallback = 'true';
+            var fallback = (window.orchidData && window.orchidData.fallbackImg)
+                ? window.orchidData.fallbackImg
+                : '/wp-content/themes/orchidcare_custom/assets/img/logo.webp';
+
+            target.src = fallback;
+            target.classList.add('img-fallback-placeholder');
+            if (!target.getAttribute('alt')) {
+                target.setAttribute('alt', 'Orchid Care');
+            }
+        }
+    }, true);
 })();
 

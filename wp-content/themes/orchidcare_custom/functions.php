@@ -53,9 +53,11 @@ function orchid_enqueue() {
     $wa_num   = preg_replace('/[^0-9]/', '', $whatsapp);
 
     wp_localize_script('orchid-main', 'orchidData', [
-        'ajaxUrl'  => admin_url('admin-ajax.php', 'relative'),
-        'nonce'    => wp_create_nonce('orchid_nonce'),
-        'whatsapp' => $wa_num,
+        'ajaxUrl'         => admin_url('admin-ajax.php', 'relative'),
+        'nonce'           => wp_create_nonce('orchid_nonce'),
+        'whatsapp'        => $wa_num,
+        'fallbackImg'     => ORCHID_URI . '/assets/img/logo.webp',
+        'productFallback' => ORCHID_URI . '/assets/img/product-laundry.png',
     ]);
 
     if (is_singular() && comments_open() && get_option('thread_comments')) {
@@ -63,6 +65,32 @@ function orchid_enqueue() {
     }
 }
 add_action('wp_enqueue_scripts', 'orchid_enqueue');
+
+// ── Global Post Thumbnail Fallback & Error Handler Filter ─────────────────
+function orchid_post_thumbnail_fallback($html, $post_id, $post_thumbnail_id, $size, $attr) {
+    $fallback_logo = ORCHID_URI . '/assets/img/logo.webp';
+
+    if (empty($html)) {
+        $alt = get_the_title($post_id);
+        return sprintf(
+            '<img src="%1$s" alt="%2$s" class="attachment-%3$s size-%3$s wp-post-image img-fallback-placeholder" loading="lazy" onerror="this.onerror=null; this.src=\'%1$s\';">',
+            esc_url($fallback_logo),
+            esc_attr($alt),
+            esc_attr($size)
+        );
+    }
+
+    // Attach onerror attribute to existing post thumbnails
+    if (strpos($html, 'onerror=') === false) {
+        $html = str_replace(
+            '<img ',
+            '<img onerror="this.onerror=null; this.src=\'' . esc_url($fallback_logo) . '\'; this.classList.add(\'img-fallback-placeholder\');" ',
+            $html
+        );
+    }
+    return $html;
+}
+add_filter('post_thumbnail_html', 'orchid_post_thumbnail_fallback', 10, 5);
 
 // ── Register Sidebars ─────────────────────────────────────────────────────────
 function orchid_widgets_init() {

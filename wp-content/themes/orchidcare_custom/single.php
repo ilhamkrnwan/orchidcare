@@ -85,6 +85,110 @@ if (have_posts()) : while (have_posts()) : the_post();
     padding-right: 3px;
 }
 
+/* Button Styling dalam Artikel (Gutenberg Block / Custom Button) */
+.entry-body-text .wp-block-button,
+.entry-body-text .wp-block-buttons {
+    margin: 1.85rem 0 !important;
+}
+.entry-body-text .wp-block-button__link,
+.entry-body-text .btn-content,
+.entry-body-text button:not(.article-toc-toggle):not(.btn-search-pill) {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+    background: #16361E !important;
+    color: #ffffff !important;
+    font-family: var(--font-display, 'Baloo 2', sans-serif) !important;
+    font-weight: 800 !important;
+    font-size: 0.98rem !important;
+    padding: 0.8rem 1.8rem !important;
+    border-radius: 999px !important;
+    text-decoration: none !important;
+    border: none !important;
+    border-bottom: none !important;
+    box-shadow: 0 4px 15px rgba(22, 54, 30, 0.12) !important;
+    transition: all 0.2s ease !important;
+    cursor: pointer !important;
+}
+.entry-body-text .wp-block-button__link:hover,
+.entry-body-text .btn-content:hover,
+.entry-body-text button:not(.article-toc-toggle):not(.btn-search-pill):hover {
+    background: #D81B80 !important;
+    color: #ffffff !important;
+    border-bottom-color: transparent !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(216, 27, 128, 0.3) !important;
+    padding-left: 1.8rem !important;
+    padding-right: 1.8rem !important;
+}
+
+/* Table of Contents (Daftar Isi Artikel) */
+.article-toc-box {
+    background: linear-gradient(135deg, #F5FAF0 0%, #EAF8D0 100%);
+    border: 1px solid rgba(136, 196, 37, 0.4);
+    border-radius: 1.35rem;
+    padding: 1.35rem 1.6rem;
+    margin: 2rem 0 2.5rem;
+    box-shadow: 0 4px 20px rgba(22, 54, 30, 0.04);
+}
+.article-toc-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: var(--font-display, 'Baloo 2', sans-serif);
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #16361E;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid rgba(22, 54, 30, 0.1);
+}
+.article-toc-toggle {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #D81B80;
+    background: #ffffff;
+    padding: 0.25rem 0.65rem;
+    border-radius: 999px;
+    cursor: pointer;
+    border: 1px solid rgba(216, 27, 128, 0.2);
+    transition: all 0.2s ease;
+}
+.article-toc-toggle:hover {
+    background: #D81B80;
+    color: #ffffff;
+}
+.article-toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+.article-toc-item a {
+    color: rgba(22, 54, 30, 0.85) !important;
+    font-size: 0.93rem !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    border-bottom: none !important;
+    transition: all 0.2s ease !important;
+    display: block;
+    padding: 0.3rem 0.6rem;
+    border-radius: 0.5rem;
+}
+.article-toc-item a:hover {
+    color: #D81B80 !important;
+    background: #ffffff;
+    padding-left: 0.85rem;
+    box-shadow: 0 2px 8px rgba(22, 54, 30, 0.05);
+}
+.article-toc-item.toc-h3 {
+    margin-left: 1.25rem;
+    font-size: 0.88rem !important;
+}
+
 /* Gambar dalam Artikel Harus Full Width */
 .entry-body-text img,
 .entry-body-text figure,
@@ -379,6 +483,82 @@ if (have_posts()) : while (have_posts()) : the_post();
             </div>
         </div>
     </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var entryContent = document.querySelector('.entry-body-text');
+    if (!entryContent) return;
+
+    var headings = entryContent.querySelectorAll('h2, h3');
+    if (headings.length < 2) return;
+
+    var tocBox = document.createElement('div');
+    tocBox.className = 'article-toc-box';
+
+    var tocHeader = document.createElement('div');
+    tocHeader.className = 'article-toc-header';
+    tocHeader.innerHTML = '<div style="display:flex;align-items:center;gap:0.5rem;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#88C425" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg><span>Daftar Isi Artikel</span></div><button type="button" class="article-toc-toggle">Sembunyikan ▴</button>';
+
+    var tocList = document.createElement('ul');
+    tocList.className = 'article-toc-list';
+
+    headings.forEach(function (h, idx) {
+        if (!h.id) {
+            h.id = 'art-sec-' + (idx + 1);
+        }
+        h.style.scrollMarginTop = '110px';
+
+        var li = document.createElement('li');
+        li.className = 'article-toc-item' + (h.tagName.toLowerCase() === 'h3' ? ' toc-h3' : '');
+
+        var link = document.createElement('a');
+        link.href = '#' + h.id;
+        link.textContent = h.textContent.replace(/^[0-9]+\.\s*/, '');
+
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            var targetEl = document.getElementById(h.id);
+            if (targetEl) {
+                var offset = 110;
+                var bodyRect = document.body.getBoundingClientRect().top;
+                var elementRect = targetEl.getBoundingClientRect().top;
+                var elementPosition = elementRect - bodyRect;
+                var offsetPosition = elementPosition - offset;
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+
+        li.appendChild(link);
+        tocList.appendChild(li);
+    });
+
+    tocBox.appendChild(tocHeader);
+    tocBox.appendChild(tocList);
+
+    var toggleBtn = tocHeader.querySelector('.article-toc-toggle');
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', function () {
+            if (tocList.style.display === 'none') {
+                tocList.style.display = 'flex';
+                toggleBtn.textContent = 'Sembunyikan ▴';
+            } else {
+                tocList.style.display = 'none';
+                toggleBtn.textContent = 'Tampilkan ▾';
+            }
+        });
+    }
+
+    var firstH2 = entryContent.querySelector('h2');
+    if (firstH2) {
+        entryContent.insertBefore(tocBox, firstH2);
+    } else {
+        entryContent.insertBefore(tocBox, entryContent.firstChild);
+    }
+});
+</script>
 
 </main>
 

@@ -66,8 +66,16 @@
                     io.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-        reveals.forEach(function (el) { io.observe(el); });
+        }, { threshold: 0.01, rootMargin: '100px 0px 100px 0px' });
+
+        reveals.forEach(function (el) {
+            var rect = el.getBoundingClientRect();
+            if (rect.top <= window.innerHeight * 1.2) {
+                el.classList.add('is-visible');
+            } else {
+                io.observe(el);
+            }
+        });
     }
 
     // ── Scroll to top ─────────────────────────────────────────────

@@ -2033,5 +2033,174 @@ body.admin-bar .site-header {
     display: none !important;
 }
 
+/* ── Single Article Detail Content Styles ────────────────────────────────── */
+.entry-body-text {
+    color: rgba(22, 54, 30, 0.88);
+    font-size: 1.05rem;
+    line-height: 1.85;
+}
+.entry-body-text a {
+    color: var(--orchid, #D81B80);
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 2px solid rgba(216, 27, 128, 0.35);
+    padding-bottom: 1px;
+    transition: all 0.2s ease-in-out;
+}
+.entry-body-text a:hover {
+    color: #16361E;
+    border-bottom-color: #88C425;
+    background-color: rgba(234, 248, 208, 0.5);
+    border-radius: 4px;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+.entry-body-text img,
+.entry-body-text figure,
+.entry-body-text .wp-block-image {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    margin-top: 1.85rem !important;
+    margin-bottom: 1.85rem !important;
+    border-radius: 1.25rem !important;
+    box-shadow: 0 8px 25px rgba(22, 54, 30, 0.06);
+}
+.entry-body-text figure img {
+    margin: 0 !important;
+    box-shadow: none !important;
+    border-radius: 1.25rem 1.25rem 0 0 !important;
+}
+.entry-body-text figure {
+    overflow: hidden;
+    border: 1px solid rgba(22, 54, 30, 0.08);
+    background: #fafafa;
+}
+.entry-body-text figcaption {
+    text-align: center;
+    font-size: 0.88rem;
+    color: rgba(22, 54, 30, 0.75);
+    padding: 0.6rem 1rem;
+    background: #f4faf0;
+    font-style: italic;
+    border-top: 1px solid rgba(22, 54, 30, 0.06);
+}
+.baca-juga-callout {
+    background: linear-gradient(135deg, #F5FAF0 0%, #EAF8D0 100%);
+    border: 1px solid rgba(136, 196, 37, 0.4);
+    border-left: 5px solid #88C425;
+    border-radius: 1.25rem;
+    padding: 1.1rem 1.4rem;
+    margin: 2rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+    box-shadow: 0 4px 15px rgba(22, 54, 30, 0.04);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.baca-juga-callout:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(22, 54, 30, 0.08);
+}
+.baca-juga-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: #16361E;
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 0.4rem 0.85rem;
+    border-radius: 999px;
+    flex-shrink: 0;
+    letter-spacing: 0.04em;
+}
+.baca-juga-content {
+    font-weight: 700;
+    color: #16361E;
+    font-size: 0.98rem;
+    line-height: 1.5;
+}
+.baca-juga-content a {
+    color: #16361E !important;
+    text-decoration: none !important;
+    border-bottom: 2px solid #D81B80 !important;
+    transition: color 0.2s ease, border-color 0.2s ease !important;
+}
+.baca-juga-content a:hover {
+    color: #D81B80 !important;
+    background-color: transparent !important;
+}
+@media (max-width: 640px) {
+    .baca-juga-callout {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.65rem;
+    }
+}
+
+/* ── Comments Section Styles ─────────────────────────────────────────────── */
+.comment-respond-card {
+    background: #F5FAF0;
+    border: 1px solid rgba(136, 196, 37, 0.35);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    margin-top: 2rem;
+    box-shadow: 0 8px 30px rgba(22, 54, 30, 0.04);
+}
+.comment-respond-card #reply-title {
+    font-family: var(--font-display, 'Baloo 2', sans-serif);
+    color: #16361E;
+    font-size: 1.35rem;
+    font-weight: 800;
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.comment-respond-card #cancel-comment-reply-link {
+    color: var(--orchid, #D81B80);
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-left: 0.75rem;
+    text-decoration: underline;
+}
+.comment-reply-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: rgba(22, 54, 30, 0.06);
+    color: #16361E;
+    font-weight: 700;
+    font-size: 0.82rem;
+    padding: 0.38rem 0.95rem;
+    border-radius: 999px;
+    text-decoration: none !important;
+    border-bottom: none !important;
+    transition: all 0.2s ease;
+}
+.comment-reply-link:hover {
+    background: #16361E;
+    color: #ffffff !important;
+}
+.comment-list .children {
+    list-style: none;
+    padding-left: 2rem;
+    margin-top: 1rem;
+    border-left: 3px solid rgba(136, 196, 37, 0.4);
+}
+@media (max-width: 640px) {
+    .comment-form-fields-wrap {
+        grid-template-columns: 1fr !important;
+    }
+    .comment-list .children {
+        padding-left: 1rem !important;
+    }
+    .comment-respond-card {
+        padding: 1.25rem !important;
+    }
+}
+
 
 

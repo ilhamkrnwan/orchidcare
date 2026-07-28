@@ -43,7 +43,7 @@ if (have_posts()) : while (have_posts()) : the_post();
     margin-bottom: 3.5rem;
 }
 .entry-body-text {
-    color: rgba(22, 54, 30, 0.85);
+    color: rgba(22, 54, 30, 0.88);
     font-size: 1.05rem;
     line-height: 1.85;
     margin-bottom: 2.5rem;
@@ -67,6 +67,105 @@ if (have_posts()) : while (have_posts()) : the_post();
 .entry-body-text p {
     margin-bottom: 1.45rem;
 }
+/* Link Styling dalam Artikel */
+.entry-body-text a {
+    color: #D81B80;
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 2px solid rgba(216, 27, 128, 0.35);
+    padding-bottom: 1px;
+    transition: all 0.2s ease-in-out;
+}
+.entry-body-text a:hover {
+    color: #16361E;
+    border-bottom-color: #88C425;
+    background-color: rgba(234, 248, 208, 0.5);
+    border-radius: 4px;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+/* Gambar dalam Artikel Harus Full Width */
+.entry-body-text img,
+.entry-body-text figure,
+.entry-body-text .wp-block-image {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    margin-top: 1.85rem !important;
+    margin-bottom: 1.85rem !important;
+    border-radius: 1.25rem !important;
+    box-shadow: 0 8px 25px rgba(22, 54, 30, 0.06);
+}
+.entry-body-text figure img {
+    margin: 0 !important;
+    box-shadow: none !important;
+    border-radius: 1.25rem 1.25rem 0 0 !important;
+}
+.entry-body-text figure {
+    overflow: hidden;
+    border: 1px solid rgba(22, 54, 30, 0.08);
+    background: #fafafa;
+}
+.entry-body-text figcaption {
+    text-align: center;
+    font-size: 0.88rem;
+    color: rgba(22, 54, 30, 0.75);
+    padding: 0.6rem 1rem;
+    background: #f4faf0;
+    font-style: italic;
+    border-top: 1px solid rgba(22, 54, 30, 0.06);
+}
+
+/* Callout Box "Baca Juga" Link */
+.baca-juga-callout {
+    background: linear-gradient(135deg, #F5FAF0 0%, #EAF8D0 100%);
+    border: 1px solid rgba(136, 196, 37, 0.4);
+    border-left: 5px solid #88C425;
+    border-radius: 1.25rem;
+    padding: 1.1rem 1.4rem;
+    margin: 2rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+    box-shadow: 0 4px 15px rgba(22, 54, 30, 0.04);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.baca-juga-callout:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(22, 54, 30, 0.08);
+}
+.baca-juga-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: #16361E;
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 0.4rem 0.85rem;
+    border-radius: 999px;
+    flex-shrink: 0;
+    letter-spacing: 0.04em;
+}
+.baca-juga-content {
+    font-weight: 700;
+    color: #16361E;
+    font-size: 0.98rem;
+    line-height: 1.5;
+}
+.baca-juga-content a {
+    color: #16361E !important;
+    text-decoration: none !important;
+    border-bottom: 2px solid #D81B80 !important;
+    transition: color 0.2s ease, border-color 0.2s ease !important;
+}
+.baca-juga-content a:hover {
+    color: #D81B80 !important;
+    background-color: transparent !important;
+}
+
 .entry-body-text blockquote {
     border-left: 4px solid #88C425;
     background: #EAF8D0;
@@ -90,6 +189,11 @@ if (have_posts()) : while (have_posts()) : the_post();
         font-size: 0.98rem;
         line-height: 1.72;
     }
+    .baca-juga-callout {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.65rem;
+    }
 }
 </style>
 
@@ -111,7 +215,7 @@ if (have_posts()) : while (have_posts()) : the_post();
             <div class="single-article-grid">
                 
                 <!-- KOLOM KIRI (UTAMA): FEATURED IMAGE, CONTENT & AUTHOR BIO -->
-                <div class="reveal">
+                <div>
                     
                     <!-- Featured Image -->
                     <div style="position: relative; border-radius: 1.75rem; overflow: hidden; border: 1px solid rgba(22, 54, 30, 0.08); box-shadow: 0 12px 35px rgba(22, 54, 30, 0.06); background: #fafafa; margin-bottom: 2.5rem;">
@@ -144,25 +248,38 @@ if (have_posts()) : while (have_posts()) : the_post();
                         </div>
                     </div>
 
-                    <!-- Author Bio Card -->
-                    <div style="background: #EAF8D0; border: 1px solid rgba(22, 54, 30, 0.12); border-radius: 1.5rem; padding: 1.75rem; display: flex; gap: 1.5rem; align-items: center;">
-                        <div style="width: 56px; height: 56px; background: #16361E; color: #ffffff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.3rem; flex-shrink: 0;">
+                    <!-- Author Bio & Editorial Validation Card -->
+                    <div style="background: #EAF8D0; border: 1px solid rgba(22, 54, 30, 0.12); border-radius: 1.5rem; padding: 1.65rem 1.75rem; display: flex; gap: 1.35rem; align-items: center; position: relative; margin-bottom: 2.5rem;">
+                        <div style="width: 56px; height: 56px; background: #16361E; color: #ffffff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.3rem; flex-shrink: 0; box-shadow: 0 4px 12px rgba(22,54,30,0.15);">
                             <?php echo esc_html(strtoupper(substr(get_the_author(), 0, 1))); ?>
                         </div>
-                        <div>
-                            <h4 style="font-family: var(--font-display, sans-serif); color: #16361E; font-size: 1.15rem; font-weight: 800; margin: 0 0 0.25rem;">
-                                Tim Redaksi PT Indotech Berkah Abadi
-                            </h4>
-                            <p style="color: rgba(22, 54, 30, 0.8); font-size: 0.9rem; line-height: 1.55; margin: 0;">
-                                Spesialis riset &amp; edukasi produk Perbekalan Kesehatan Rumah Tangga (PKRT), formulasi sabun laundry, dan biang konsentrat di Sleman, D.I. Yogyakarta.
+                        <div style="flex: 1;">
+                            <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.35rem;">
+                                <h4 style="font-family: var(--font-display, sans-serif); color: #16361E; font-size: 1.12rem; font-weight: 800; margin: 0;">
+                                    Penulis: <?php echo esc_html(get_the_author()); ?>
+                                </h4>
+                                <span style="display: inline-flex; align-items: center; gap: 0.3rem; background: #16361E; color: #88C425; font-size: 0.76rem; font-weight: 800; padding: 0.25rem 0.75rem; border-radius: 999px; letter-spacing: 0.02em;">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    Divalidasi Tim Redaksi
+                                </span>
+                            </div>
+                            <p style="color: rgba(22, 54, 30, 0.82); font-size: 0.88rem; line-height: 1.55; margin: 0;">
+                                Artikel ini ditulis oleh <strong><?php echo esc_html(get_the_author()); ?></strong> dan telah ditinjau serta divalidasi oleh <strong>Tim Redaksi PT Indotech Berkah Abadi</strong> untuk menjamin keakuratan informasi &amp; edukasi formulasi.
                             </p>
                         </div>
                     </div>
 
+                    <!-- ═══ 2.5 COMMENTS & DISCUSSION SECTION ═══ -->
+                    <?php
+                    if (comments_open() || get_comments_number()) {
+                        comments_template();
+                    }
+                    ?>
+
                 </div>
 
                 <!-- KOLOM KANAN (SIDEBAR): KONSULTASI WA, RINGKASAN & ARTIKEL REKOMENDASI -->
-                <div class="reveal">
+                <div>
                     
                     <!-- Direct WhatsApp Consultation Box (Matching Single Product CTA Box) -->
                     <div style="background: #EAF8D0; border: 1px solid rgba(22, 54, 30, 0.12); border-radius: 1.5rem; padding: 1.75rem; margin-bottom: 2rem;">

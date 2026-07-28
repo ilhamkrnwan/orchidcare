@@ -189,28 +189,42 @@ if (have_posts()) : while (have_posts()) : the_post();
     font-size: 0.88rem !important;
 }
 
-/* Gambar dalam Artikel Harus Full Width */
-.entry-body-text img,
-.entry-body-text figure,
-.entry-body-text .wp-block-image {
-    width: 100% !important;
+/* Gambar dalam Artikel: Max Width & Centered Proportional */
+.entry-body-text img {
     max-width: 100% !important;
+    width: auto !important;
+    max-height: 520px !important;
     height: auto !important;
     display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
     margin-top: 1.85rem !important;
     margin-bottom: 1.85rem !important;
     border-radius: 1.25rem !important;
     box-shadow: 0 8px 25px rgba(22, 54, 30, 0.06);
+    object-fit: contain !important;
 }
-.entry-body-text figure img {
-    margin: 0 !important;
-    box-shadow: none !important;
-    border-radius: 1.25rem 1.25rem 0 0 !important;
-}
-.entry-body-text figure {
+.entry-body-text figure,
+.entry-body-text .wp-block-image {
+    max-width: 100% !important;
+    width: fit-content !important;
+    height: auto !important;
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: 1.85rem !important;
+    margin-bottom: 1.85rem !important;
+    border-radius: 1.25rem !important;
     overflow: hidden;
     border: 1px solid rgba(22, 54, 30, 0.08);
     background: #fafafa;
+    box-shadow: 0 8px 25px rgba(22, 54, 30, 0.06);
+}
+.entry-body-text figure img,
+.entry-body-text .wp-block-image img {
+    margin: 0 !important;
+    box-shadow: none !important;
+    border-radius: 1.25rem 1.25rem 0 0 !important;
 }
 .entry-body-text figcaption {
     text-align: center;

@@ -11,7 +11,8 @@ $current_cat = isset($_GET['kategori']) ? sanitize_text_field($_GET['kategori'])
 
 $args = [
     'post_type'      => 'product',
-    'posts_per_page' => -1,
+    'posts_per_page' => 8,
+    'paged'          => 1,
     'post_status'    => 'publish',
 ];
 
@@ -26,6 +27,7 @@ if ($current_cat) {
 }
 
 $product_query = new WP_Query($args);
+$max_pages     = $product_query->max_num_pages;
 $wa_general_url = orchid_wa_url('Halo Orchid Care, saya ingin bertanya tentang katalog produk dan penawaran harga grosir.');
 ?>
 
@@ -64,9 +66,9 @@ $wa_general_url = orchid_wa_url('Halo Orchid Care, saya ingin bertanya tentang k
 }
 .catalog-grid-layout {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 2rem;
-    margin-bottom: 3.5rem;
+    margin-bottom: 2.5rem;
 }
 .catalog-card {
     background: #ffffff;
@@ -81,6 +83,35 @@ $wa_general_url = orchid_wa_url('Halo Orchid Care, saya ingin bertanya tentang k
 .catalog-card:hover {
     transform: translateY(-4px);
 }
+
+/* Ghost Skeleton Loader Animation */
+.ghost-skeleton-card {
+    background: #ffffff;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    border: 1px solid rgba(22, 54, 30, 0.08);
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    box-shadow: 0 6px 20px rgba(22, 54, 30, 0.04);
+}
+.ghost-pulse {
+    background: linear-gradient(90deg, #f2f7ef 25%, #e2ede0 50%, #f2f7ef 75%);
+    background-size: 200% 100%;
+    animation: ghostPulse 1.4s infinite ease-in-out;
+    border-radius: 0.75rem;
+}
+@keyframes ghostPulse {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+.ghost-img { height: 190px; border-radius: 1.25rem; }
+.ghost-badge { height: 18px; width: 35%; border-radius: 999px; }
+.ghost-title { height: 26px; width: 85%; }
+.ghost-text { height: 18px; width: 65%; }
+.ghost-btn { height: 42px; width: 100%; border-radius: 999px; margin-top: auto; }
+
 @media (max-width: 768px) {
     .catalog-page section {
         padding: 3rem 0 !important;
@@ -100,33 +131,30 @@ $wa_general_url = orchid_wa_url('Halo Orchid Care, saya ingin bertanya tentang k
     
     <!-- ═══ 1. ELEGANT PAGE HERO BANNER ═══ -->
     <?php orchid_page_hero(
-        'KATALOG PRODUK ORCHID CARE',
-        'Pembersih PKRT, Wewangian Laundry & Biang Konsentrat 1kg Jadi 15L',
-        'Formulasi kimia higienis berkualitas tinggi langsung dari pabrik PT Indotech Berkah Abadi di Sleman, D.I. Yogyakarta. Melayani pasokan grosir laundry kiloan, rumah tangga, instansi, & reseller.'
+        'KATALOG PRODUK',
+        'Pilihan Sabun &amp; Biang Konsentrat Premium',
+        'Formulasi resmi PT Indotech Berkah Abadi untuk usaha laundry, rumah tangga, &amp; keagenan.'
     ); ?>
 
-    <!-- ═══ 2. CATEGORY FILTER TABS & PRODUCT LIST ═══ -->
-    <section class="catalog-section" style="padding: 4.5rem 0; background: #ffffff; border-bottom: 1px solid rgba(22, 54, 30, 0.06);">
+    <!-- ═══ 2. MAIN CATALOG GRID & CATEGORY FILTER ═══ -->
+    <section class="catalog-main-section" style="padding: 4.5rem 0; background: #ffffff;">
         <div class="container">
             
-            <!-- Category Filter Bar (Dynamic Terms Query) -->
-            <?php
-            $uncat = get_term_by('slug', 'uncategorized', 'product_cat');
-            $exclude_ids = $uncat ? [$uncat->term_id] : [];
-            $all_categories = get_terms([
-                'taxonomy'   => 'product_cat',
-                'hide_empty' => false,
-                'exclude'    => $exclude_ids,
-                'orderby'    => 'name',
-                'order'      => 'ASC',
-            ]);
-            ?>
-            <div class="catalog-filter-bar reveal">
-                <a href="<?php echo esc_url(home_url('/produk')); ?>" class="filter-tab <?php echo empty($current_cat) ? 'is-active' : ''; ?>">
+            <!-- Category Filter Tabs -->
+            <div class="catalog-filter-bar">
+                <a href="<?php echo esc_url(home_url('/produk')); ?>" 
+                   class="filter-tab <?php echo empty($current_cat) ? 'is-active' : ''; ?>">
                     Semua Produk
                 </a>
-                <?php if (!empty($all_categories) && !is_wp_error($all_categories)) : ?>
-                    <?php foreach ($all_categories as $cat) : ?>
+                <?php
+                $product_cats = get_terms([
+                    'taxonomy'   => 'product_cat',
+                    'hide_empty' => true,
+                ]);
+                if (!empty($product_cats) && !is_wp_error($product_cats)) :
+                    foreach ($product_cats as $cat) :
+                        if ($cat->slug === 'uncategorized') continue;
+                ?>
                         <a href="<?php echo esc_url(home_url('/produk?kategori=' . $cat->slug)); ?>"
                            class="filter-tab <?php echo ($current_cat === $cat->slug) ? 'is-active' : ''; ?>">
                             <?php echo esc_html($cat->name); ?>
@@ -136,7 +164,7 @@ $wa_general_url = orchid_wa_url('Halo Orchid Care, saya ingin bertanya tentang k
             </div>
 
             <!-- Product Grid -->
-            <div class="catalog-grid-layout">
+            <div id="catalog-products-grid" class="catalog-grid-layout">
                 <?php if ($product_query->have_posts()) : ?>
                     <?php while ($product_query->have_posts()) : $product_query->the_post(); 
                         $raw_terms = get_the_terms(get_the_ID(), 'product_cat');
@@ -149,10 +177,10 @@ $wa_general_url = orchid_wa_url('Halo Orchid Care, saya ingin bertanya tentang k
                         $wa_url     = orchid_wa_url($wa_msg);
                         $thumb_url  = has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'large') : get_template_directory_uri() . '/assets/img/product-laundry.png';
                     ?>
-                        <article class="catalog-card reveal">
+                        <article class="catalog-card reveal is-visible">
                             <div style="position: relative; height: 220px; overflow: hidden; background: #fafafa;">
                                 <a href="<?php the_permalink(); ?>" style="display: block; width: 100%; height: 100%;">
-                                    <img src="<?php echo esc_url($thumb_url); ?>" alt="<?php the_title_attribute(); ?>" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                                    <img src="<?php echo esc_url($thumb_url); ?>" alt="<?php the_title_attribute(); ?>" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" onerror="this.onerror=null; this.src='<?php echo esc_url(ORCHID_URI . '/assets/img/logo.webp'); ?>'; this.classList.add('img-fallback-placeholder');">
                                 </a>
                                 <span class="chip-tag chip-tag--mint" style="position: absolute; top: 1rem; left: 1rem; font-size: 0.72rem; padding: 0.3rem 0.75rem; border-radius: 999px;">
                                     <?php echo esc_html($cat_name); ?>
@@ -184,9 +212,8 @@ $wa_general_url = orchid_wa_url('Halo Orchid Care, saya ingin bertanya tentang k
 
                 <?php else : ?>
                     
-                    <!-- SAMPLE DEMONSTRATION PRODUCT CARDS (SAFE FALLBACK DISPLAY) -->
-                    <!-- Sample 1: Deterjen Laundry -->
-                    <article class="catalog-card reveal">
+                    <!-- SAMPLE DEMONSTRATION PRODUCT CARDS -->
+                    <article class="catalog-card reveal is-visible">
                         <div style="position: relative; height: 220px; overflow: hidden; background: #fafafa;">
                             <a href="<?php echo esc_url(home_url('/kontak')); ?>" style="display: block; width: 100%; height: 100%;">
                                 <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/product-laundry.png'); ?>" alt="Deterjen Laundry Kiloan Orchid Care" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
@@ -204,68 +231,44 @@ $wa_general_url = orchid_wa_url('Halo Orchid Care, saya ingin bertanya tentang k
                         </div>
                     </article>
 
-                    <!-- Sample 2: Malabeez Perfume -->
-                    <article class="catalog-card reveal">
-                        <div style="position: relative; height: 220px; overflow: hidden; background: #fafafa;">
-                            <a href="<?php echo esc_url(home_url('/kontak')); ?>" style="display: block; width: 100%; height: 100%;">
-                                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/product-parfum.png'); ?>" alt="Malabeez Perfume Laundry" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
-                            </a>
-                            <span class="chip-tag chip-tag--lavender" style="position: absolute; top: 1rem; left: 1rem; font-size: 0.72rem; padding: 0.3rem 0.75rem; border-radius: 999px;">Malabeez Perfume</span>
-                        </div>
-                        <div style="padding: 1.5rem; display: flex; flex-direction: column; flex: 1;">
-                            <span style="font-size: 0.75rem; font-weight: 800; color: #2563eb; font-family: var(--font-mono, monospace); margin-bottom: 0.3rem;">AROMA MEWAH TAHAN LAMA</span>
-                            <h3 style="font-family: var(--font-display, 'Baloo 2', sans-serif); font-size: 1.25rem; font-weight: 800; color: #16361E; margin: 0 0 0.6rem;">Malabeez Premium Laundry Perfume</h3>
-                            <p style="color: rgba(22, 54, 30, 0.75); font-size: 0.9rem; line-height: 1.55; margin: 0 0 1.25rem; flex: 1;">Bibit wewangian impor murni yang harum menempel erat pada serat pakaian &amp; bebas aroma apek.</p>
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; border-top: 1px solid rgba(22, 54, 30, 0.08); padding-top: 1rem;">
-                                <a href="<?php echo esc_url(home_url('/kontak')); ?>" class="btn-search-pill" style="font-size: 0.85rem; padding: 0.65rem 1rem; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; background: #fafafa; color: #16361E; border: 1px solid rgba(22, 54, 30, 0.15); border-radius: 999px; font-weight: 700; box-shadow: none !important;">Detail</a>
-                                <a href="<?php echo esc_url($wa_general_url); ?>" target="_blank" rel="noopener" class="btn-search-pill" style="font-size: 0.85rem; padding: 0.65rem 1rem; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; background: #16361E; color: #ffffff; border-radius: 999px; font-weight: 800; box-shadow: none !important;">Pesan WA</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Sample 3: Biang Konsentrat -->
-                    <article class="catalog-card reveal">
-                        <div style="position: relative; height: 220px; overflow: hidden; background: #fafafa;">
-                            <a href="<?php echo esc_url(home_url('/kontak')); ?>" style="display: block; width: 100%; height: 100%;">
-                                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/product-biang.png'); ?>" alt="Biang Konsentrat Sabun 1kg jadi 15L" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
-                            </a>
-                            <span class="chip-tag chip-tag--butter" style="position: absolute; top: 1rem; left: 1rem; font-size: 0.72rem; padding: 0.3rem 0.75rem; border-radius: 999px;">Biang Konsentrat</span>
-                        </div>
-                        <div style="padding: 1.5rem; display: flex; flex-direction: column; flex: 1;">
-                            <span style="font-size: 0.75rem; font-weight: 800; color: #88C425; font-family: var(--font-mono, monospace); margin-bottom: 0.3rem;">HEMAT ONGKIR 90%</span>
-                            <h3 style="font-family: var(--font-display, 'Baloo 2', sans-serif); font-size: 1.25rem; font-weight: 800; color: #16361E; margin: 0 0 0.6rem;">Biang DeterMat &amp; O'Clean (1kg jadi 15L)</h3>
-                            <p style="color: rgba(22, 54, 30, 0.75); font-size: 0.9rem; line-height: 1.55; margin: 0 0 1.25rem; flex: 1;">Paket konsentrat hemat logistik. Cukup campur 1kg biang dengan 14L air bersih tanpa gumpal.</p>
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; border-top: 1px solid rgba(22, 54, 30, 0.08); padding-top: 1rem;">
-                                <a href="<?php echo esc_url(home_url('/kontak')); ?>" class="btn-search-pill" style="font-size: 0.85rem; padding: 0.65rem 1rem; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; background: #fafafa; color: #16361E; border: 1px solid rgba(22, 54, 30, 0.15); border-radius: 999px; font-weight: 700; box-shadow: none !important;">Detail</a>
-                                <a href="<?php echo esc_url($wa_general_url); ?>" target="_blank" rel="noopener" class="btn-search-pill" style="font-size: 0.85rem; padding: 0.65rem 1rem; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; background: #16361E; color: #ffffff; border-radius: 999px; font-weight: 800; box-shadow: none !important;">Pesan WA</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Sample 4: Home Care Pembersih Lantai -->
-                    <article class="catalog-card reveal">
-                        <div style="position: relative; height: 220px; overflow: hidden; background: #fafafa;">
-                            <a href="<?php echo esc_url(home_url('/kontak')); ?>" style="display: block; width: 100%; height: 100%;">
-                                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/product-home.png'); ?>" alt="Sabun Pel Lantai Home Care" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
-                            </a>
-                            <span class="chip-tag chip-tag--peach" style="position: absolute; top: 1rem; left: 1rem; font-size: 0.72rem; padding: 0.3rem 0.75rem; border-radius: 999px;">Home Care</span>
-                        </div>
-                        <div style="padding: 1.5rem; display: flex; flex-direction: column; flex: 1;">
-                            <span style="font-size: 0.75rem; font-weight: 800; color: #D81B80; font-family: var(--font-mono, monospace); margin-bottom: 0.3rem;">BEBAS KUMAN &amp; KINCLONG</span>
-                            <h3 style="font-family: var(--font-display, 'Baloo 2', sans-serif); font-size: 1.25rem; font-weight: 800; color: #16361E; margin: 0 0 0.6rem;">Sabun Pel Lantai Aromaterapi Lemon/Sereh</h3>
-                            <p style="color: rgba(22, 54, 30, 0.75); font-size: 0.9rem; line-height: 1.55; margin: 0 0 1.25rem; flex: 1;">Pembersih lantai serbaguna yang efektif membunuh kuman, mengkilapkan ubin, &amp; wangi segar alami.</p>
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; border-top: 1px solid rgba(22, 54, 30, 0.08); padding-top: 1rem;">
-                                <a href="<?php echo esc_url(home_url('/kontak')); ?>" class="btn-search-pill" style="font-size: 0.85rem; padding: 0.65rem 1rem; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; background: #fafafa; color: #16361E; border: 1px solid rgba(22, 54, 30, 0.15); border-radius: 999px; font-weight: 700; box-shadow: none !important;">Detail</a>
-                                <a href="<?php echo esc_url($wa_general_url); ?>" target="_blank" rel="noopener" class="btn-search-pill" style="font-size: 0.85rem; padding: 0.65rem 1rem; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; background: #16361E; color: #ffffff; border-radius: 999px; font-weight: 800; box-shadow: none !important;">Pesan WA</a>
-                            </div>
-                        </div>
-                    </article>
-
                 <?php endif; ?>
             </div>
 
+            <!-- Ghost Skeleton Loaders (Ghost Scroll Loading State) -->
+            <div id="ghost-skeleton-container" class="catalog-grid-layout" style="display: none; margin-bottom: 2.5rem;">
+                <div class="ghost-skeleton-card">
+                    <div class="ghost-pulse ghost-img"></div>
+                    <div class="ghost-pulse ghost-badge"></div>
+                    <div class="ghost-pulse ghost-title"></div>
+                    <div class="ghost-pulse ghost-text"></div>
+                    <div class="ghost-pulse ghost-btn"></div>
+                </div>
+                <div class="ghost-skeleton-card">
+                    <div class="ghost-pulse ghost-img"></div>
+                    <div class="ghost-pulse ghost-badge"></div>
+                    <div class="ghost-pulse ghost-title"></div>
+                    <div class="ghost-pulse ghost-text"></div>
+                    <div class="ghost-pulse ghost-btn"></div>
+                </div>
+                <div class="ghost-skeleton-card">
+                    <div class="ghost-pulse ghost-img"></div>
+                    <div class="ghost-pulse ghost-badge"></div>
+                    <div class="ghost-pulse ghost-title"></div>
+                    <div class="ghost-pulse ghost-text"></div>
+                    <div class="ghost-pulse ghost-btn"></div>
+                </div>
+            </div>
+
+            <?php if ($max_pages > 1) : ?>
+                <div class="load-more-wrap" style="text-align: center; margin-bottom: 3.5rem;">
+                    <button type="button" id="btn-load-more-products" data-page="1" data-max="<?php echo esc_attr($max_pages); ?>" data-cat="<?php echo esc_attr($current_cat); ?>" class="btn-search-pill" style="font-size: 0.98rem; padding: 0.85rem 2.2rem; background: #16361E; color: #ffffff; font-weight: 800; border-radius: 999px; cursor: pointer; border: none; box-shadow: 0 4px 15px rgba(22,54,30,0.15);">
+                        <span>Muat Lebih Banyak Produk ↵</span>
+                    </button>
+                </div>
+            <?php endif; ?>
+
             <!-- Biang Konsentrat Banner Info -->
-            <div class="reveal" style="background: #EAF8D0; border: 1px solid rgba(22, 54, 30, 0.12); border-radius: 1.75rem; padding: 2.25rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;">
+            <div class="reveal is-visible" style="background: #EAF8D0; border: 1px solid rgba(22, 54, 30, 0.12); border-radius: 1.75rem; padding: 2.25rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;">
                 <div style="max-width: 750px;">
                     <span style="font-family: var(--font-mono, monospace); font-size: 0.78rem; font-weight: 800; color: #16361E; opacity: 0.8; text-transform: uppercase; display: block; margin-bottom: 0.4rem;">INOVASI LOGISTIK PABRIK</span>
                     <h3 style="font-family: var(--font-display, 'Baloo 2', sans-serif); font-size: 1.5rem; font-weight: 800; color: #16361E; line-height: 1.25; margin: 0 0 0.5rem;">Hemat Ongkos Kirim 90% dengan Biang Konsentrat</h3>

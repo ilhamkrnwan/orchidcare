@@ -293,6 +293,13 @@ if (have_posts()) : while (have_posts()) : the_post();
     margin: 1.75rem 0;
     color: #16361E;
 }
+@media (min-width: 993px) {
+    .single-sidebar {
+        position: sticky !important;
+        top: 110px !important;
+        align-self: start !important;
+    }
+}
 @media (max-width: 992px) {
     .single-article-grid {
         grid-template-columns: 1fr !important;
@@ -397,7 +404,7 @@ if (have_posts()) : while (have_posts()) : the_post();
                 </div>
 
                 <!-- KOLOM KANAN (SIDEBAR): KONSULTASI WA, RINGKASAN & ARTIKEL REKOMENDASI -->
-                <div>
+                <div class="single-sidebar">
                     
                     <!-- Direct WhatsApp Consultation Box (Matching Single Product CTA Box) -->
                     <div style="background: #EAF8D0; border: 1px solid rgba(22, 54, 30, 0.12); border-radius: 1.5rem; padding: 1.75rem; margin-bottom: 2rem;">

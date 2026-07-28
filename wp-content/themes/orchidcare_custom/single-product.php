@@ -40,6 +40,13 @@ if (have_posts()) : while (have_posts()) : the_post();
     align-items: start;
     margin-bottom: 4rem;
 }
+@media (min-width: 993px) {
+    .product-sticky-col {
+        position: sticky !important;
+        top: 110px !important;
+        align-self: start !important;
+    }
+}
 .specs-table {
     width: 100%;
     border-collapse: collapse;
@@ -89,7 +96,7 @@ if (have_posts()) : while (have_posts()) : the_post();
             <div class="single-product-grid">
                 
                 <!-- KOLOM KIRI: FOTO UTAMA & BADGES -->
-                <div class="reveal">
+                <div class="reveal product-sticky-col">
                     <div style="position: relative; border-radius: 1.75rem; overflow: hidden; border: 1px solid rgba(22, 54, 30, 0.08); box-shadow: 0 12px 35px rgba(22, 54, 30, 0.06); background: #fafafa; margin-bottom: 1.5rem;">
                         <img src="<?php echo esc_url($thumb_url); ?>" alt="<?php the_title_attribute(); ?>" style="width: 100%; height: auto; display: block; object-fit: cover; border-radius: 1.75rem;" loading="lazy">
                         <span class="chip-tag chip-tag--mint" style="position: absolute; top: 1.25rem; left: 1.25rem; font-size: 0.8rem; padding: 0.35rem 0.9rem; border-radius: 999px;">

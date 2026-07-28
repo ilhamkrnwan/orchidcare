@@ -312,5 +312,87 @@ add_action('wp', function() {
     }
 });
 
+// ── AJAX Handler for Product Catalog Ghost Scroll & Infinite Load More ─────
+function orchid_ajax_load_more_products() {
+    check_ajax_referer('orchid_nonce', 'nonce');
+
+    $paged    = isset($_POST['page']) ? intval($_POST['page']) : 1;
+    $category = isset($_POST['category']) ? sanitize_text_field($_POST['category']) : '';
+    $per_page = 8;
+
+    $args = [
+        'post_type'      => 'product',
+        'posts_per_page' => $per_page,
+        'paged'          => $paged,
+        'post_status'    => 'publish',
+    ];
+
+    if (!empty($category)) {
+        $args['tax_query'] = [
+            [
+                'taxonomy' => 'product_cat',
+                'field'    => 'slug',
+                'terms'    => $category,
+            ],
+        ];
+    }
+
+    $query = new WP_Query($args);
+
+    ob_start();
+    if ($query->have_posts()) {
+        while ($query->have_posts()) {
+            $query->the_post();
+            $terms     = get_the_terms(get_the_ID(), 'product_cat');
+            $cat_name  = ($terms && !is_wp_error($terms)) ? $terms[0]->name : 'Orchid Care';
+            $sku       = get_post_meta(get_the_ID(), '_product_sku', true) ?: 'OC-' . get_the_ID();
+            $ratio     = get_post_meta(get_the_ID(), '_product_ratio', true) ?: 'Biang Konsentrat Hemat';
+            $thumb_url = has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'large') : get_template_directory_uri() . '/assets/img/product-laundry.png';
+            $wa_url    = orchid_wa_url("Halo Orchid Care, saya tertarik dengan produk *" . get_the_title() . "* ({$sku}). Mohon info pemesanan & harganya.");
+            ?>
+            <article class="catalog-card reveal is-visible">
+                <div class="card-img-wrap">
+                    <a href="<?php the_permalink(); ?>">
+                        <img src="<?php echo esc_url($thumb_url); ?>" alt="<?php the_title_attribute(); ?>" loading="lazy" onerror="this.onerror=null; this.src='<?php echo esc_url(ORCHID_URI . '/assets/img/logo.webp'); ?>'; this.classList.add('img-fallback-placeholder');">
+                    </a>
+                    <span class="chip-tag chip-tag--mint card-badge">
+                        <?php echo esc_html($cat_name); ?>
+                    </span>
+                </div>
+                <div class="card-body">
+                    <span class="product-sku"><?php echo esc_html($sku); ?></span>
+                    <h3 class="product-title">
+                        <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                    </h3>
+                    <p class="product-ratio">
+                        💡 <?php echo esc_html($ratio); ?>
+                    </p>
+                    <div class="card-actions">
+                        <a href="<?php the_permalink(); ?>" class="btn-detail">
+                            Detail Produk
+                        </a>
+                        <a href="<?php echo esc_url($wa_url); ?>" target="_blank" rel="noopener" class="btn-wa">
+                            Pesan WA &rarr;
+                        </a>
+                    </div>
+                </div>
+            </article>
+            <?php
+        }
+    }
+    $html = ob_get_clean();
+    $max_pages = $query->max_num_pages;
+    wp_reset_postdata();
+
+    wp_send_json_success([
+        'html'      => $html,
+        'has_more'  => ($paged < $max_pages),
+        'paged'     => $paged,
+        'max_pages' => $max_pages,
+    ]);
+}
+add_action('wp_ajax_orchid_load_more_products', 'orchid_ajax_load_more_products');
+add_action('wp_ajax_nopriv_orchid_load_more_products', 'orchid_ajax_load_more_products');
+
 
 

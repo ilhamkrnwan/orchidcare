@@ -32,6 +32,13 @@ $form_sent = isset($_GET['contact_sent']) && $_GET['contact_sent'] == '1';
     gap: 3.5rem;
     align-items: start;
 }
+@media (min-width: 993px) {
+    .contact-sticky-col {
+        position: sticky !important;
+        top: 110px !important;
+        align-self: start !important;
+    }
+}
 @media (max-width: 992px) {
     .contact-page .contact-grid {
         grid-template-columns: 1fr !important;
@@ -64,7 +71,7 @@ $form_sent = isset($_GET['contact_sent']) && $_GET['contact_sent'] == '1';
             <div class="contact-grid">
                 
                 <!-- ═══ KOLOM KIRI: INFORMASI KONTAK & SALURAN WA RESMI ═══ -->
-                <div class="reveal">
+                <div class="reveal contact-sticky-col">
                     <span class="chip-tag chip-tag--coral" style="margin-bottom: 0.75rem; display: inline-block;">SALURAN KOMUNIKASI RESMI</span>
                     
                     <h2 style="font-family: var(--font-display, 'Baloo 2', sans-serif); font-size: clamp(1.8rem, 4vw, 2.4rem); color: #16361E; line-height: 1.25; margin-bottom: 1rem; font-weight: 800;">

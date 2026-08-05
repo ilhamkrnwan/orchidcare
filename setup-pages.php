@@ -220,11 +220,28 @@ if (!$menu_exists) {
     log_msg("Navigasi Menu '{$menu_name}' sudah ada (ID: {$menu_id}).", "info");
 }
 
-// Clear item menu lama agar tidak duplikat
-$existing_items = wp_get_nav_menu_items($menu_id);
+// Clear ALL item menu lama (termasuk status draft) agar tidak duplikat
+$existing_items = wp_get_nav_menu_items($menu_id, ['post_status' => 'any']);
+if (empty($existing_items)) {
+    // Fallback: Query langsung post_type nav_menu_item jika wp_get_nav_menu_items memfilter draft
+    $existing_items = get_posts([
+        'post_type'   => 'nav_menu_item',
+        'numberposts' => -1,
+        'post_status' => 'any',
+        'tax_query'   => [
+            [
+                'taxonomy' => 'nav_menu',
+                'field'    => 'term_id',
+                'terms'    => $menu_id,
+            ],
+        ],
+    ]);
+}
+
 if ($existing_items) {
     foreach ($existing_items as $item) {
-        wp_delete_post($item->ID, true);
+        $item_id = is_object($item) ? $item->ID : $item;
+        wp_delete_post($item_id, true);
     }
     log_msg("Item menu lama dibersihkan.", "info");
 }
@@ -243,14 +260,25 @@ $order = 1;
 foreach ($menu_order as $slug => $custom_title) {
     if (isset($created_page_ids[$slug])) {
         $pid = $created_page_ids[$slug];
-        wp_update_nav_menu_item($menu_id, 0, [
+        $item_db_id = wp_update_nav_menu_item($menu_id, 0, [
             'menu-item-title'     => $custom_title,
             'menu-item-object-id' => $pid,
             'menu-item-object'    => 'page',
             'menu-item-type'      => 'post_type',
+            'menu-item-status'    => 'publish',
             'menu-item-position'  => $order++,
         ]);
-        log_msg("  ├─ Item Menu: {$custom_title} (/{$slug}) ditambahkan.", "success");
+
+        // Pastikan status post nav_menu_item benar-benar 'publish'
+        if ($item_db_id && !is_wp_error($item_db_id)) {
+            wp_update_post([
+                'ID'          => $item_db_id,
+                'post_status' => 'publish',
+            ]);
+            log_msg("  ├─ Item Menu: {$custom_title} (/{$slug}) ditambahkan (ID: {$item_db_id}).", "success");
+        } else {
+            log_msg("  ├─ Gagal menambahkan Item Menu: {$custom_title}.", "error");
+        }
     }
 }
 

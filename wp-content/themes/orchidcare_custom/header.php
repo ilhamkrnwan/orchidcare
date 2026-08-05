@@ -30,7 +30,7 @@ $wa_url   = orchid_wa_url('Halo Orchid Care, saya ingin bertanya mengenai produk
         </div>
 
         <!-- ═══ NAVIGATION ═══ -->
-        <nav class="primary-nav" id="primary-nav" aria-label="Navigasi Utama" onclick="if(event.target.closest('a')){document.body.classList.remove('nav-open');}">
+        <nav class="primary-nav" id="primary-nav" aria-label="Navigasi Utama">
             <div class="mobile-nav-top">
                 <a href="<?php echo esc_url(home_url('/')); ?>" class="mobile-logo-link">
                     <img src="<?php echo esc_url(ORCHID_URI . '/assets/img/logo.webp'); ?>" alt="Orchid Care Logo" class="mobile-drawer-logo">
@@ -102,8 +102,8 @@ $wa_url   = orchid_wa_url('Halo Orchid Care, saya ingin bertanya mengenai produk
                 Hubungi Kami
             </a>
 
-            <!-- Mobile hamburger (Inline onclick for zero-dependency operation) -->
-            <button class="menu-toggle" id="menu-toggle" aria-label="Buka Menu" aria-expanded="false" onclick="document.body.classList.toggle('nav-open'); this.setAttribute('aria-expanded', document.body.classList.contains('nav-open'));">
+            <!-- Mobile hamburger -->
+            <button class="menu-toggle" id="menu-toggle" aria-label="Buka Menu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>

@@ -331,14 +331,24 @@ if (class_exists('LiteSpeed\Purge')) {
     log_msg("LiteSpeed Cache dibersihkan secara total.", "success");
 }
 
-// Matikan Opsi LiteSpeed Guest Mode & JS Defer di DB jika terinstall
-$ls_conf = get_option('litespeed.conf');
-if (is_array($ls_conf)) {
-    $ls_conf['optm-js_defer'] = 0;
-    $ls_conf['guest'] = 0;
-    update_option('litespeed.conf', $ls_conf);
-    log_msg("Opsi LiteSpeed (Guest Mode & JS Defer) ditonaktifkan untuk mencegah error 403.", "success");
+// Matikan Opsi LiteSpeed Guest Mode & JS Defer via Official LiteSpeed API & Options
+if (class_exists('LiteSpeed\Conf')) {
+    try {
+        LiteSpeed\Conf::cls()->update(['guest' => 0, 'optm-js_defer' => 0]);
+        log_msg("LiteSpeed Conf API: Guest Mode & JS Defer berhasil dimatikan.", "success");
+    } catch (\Throwable $e) {}
 }
+
+$ls_keys = ['litespeed.conf', 'litespeed-cache-options', 'litespeed_conf', 'litespeed-options'];
+foreach ($ls_keys as $k) {
+    $ls_conf = get_option($k);
+    if (is_array($ls_conf)) {
+        $ls_conf['optm-js_defer'] = 0;
+        $ls_conf['guest'] = 0;
+        update_option($k, $ls_conf);
+    }
+}
+log_msg("Opsi LiteSpeed (Guest Mode & JS Defer) ditonaktifkan di DB untuk mencegah error 403.", "success");
 if (function_exists('w3tc_flush_posts')) {
     w3tc_flush_posts();
     log_msg("W3 Total Cache dibersihkan.", "success");

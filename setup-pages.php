@@ -141,29 +141,42 @@ foreach ($pages_to_setup as $p) {
     $slug     = $p['slug'];
     $template = $p['template'];
 
-    // Cek apakah halaman dengan slug tersebut sudah ada
-    $existing = get_page_by_path($slug, OBJECT, 'page');
+    // Cek halaman berdasarkan slug/name tanpa memandang status (publish, draft, private, trash)
+    $found = get_posts([
+        'name'        => $slug,
+        'post_type'   => 'page',
+        'post_status' => 'any',
+        'numberposts' => 1,
+    ]);
+    $existing = !empty($found) ? $found[0] : null;
 
     if (!$existing) {
-        // Cek alternatif judul jika slug beda
-        $existing_by_title = get_page_by_title($title, OBJECT, 'page');
-        if ($existing_by_title) {
-            $existing = $existing_by_title;
-        }
+        // Cek alternatif berdasarkan judul jika slug beda
+        $found_title = get_posts([
+            'title'       => $title,
+            'post_type'   => 'page',
+            'post_status' => 'any',
+            'numberposts' => 1,
+        ]);
+        $existing = !empty($found_title) ? $found_title[0] : null;
     }
 
     if ($existing) {
         $page_id = $existing->ID;
-        // Update slug & title jika perlu
+        // Restore jika di trash
+        if ($existing->post_status === 'trash') {
+            wp_untrash_post($page_id);
+        }
+        // Paksa status ke 'publish' & update slug/title
         wp_update_post([
             'ID'          => $page_id,
             'post_title'  => $title,
             'post_name'   => $slug,
             'post_status' => 'publish',
         ]);
-        log_msg("Halaman '{$title}' (ID: {$page_id}, Slug: /{$slug}) sudah ada. Memperbarui status & slug.", "info");
+        log_msg("Halaman '{$title}' (ID: {$page_id}, Slug: /{$slug}, Status: PUBLISH) diperbarui.", "info");
     } else {
-        // Buat halaman baru
+        // Buat halaman baru dengan status PUBLISH
         $page_id = wp_insert_post([
             'post_title'   => $title,
             'post_name'    => $slug,
@@ -171,8 +184,12 @@ foreach ($pages_to_setup as $p) {
             'post_type'    => 'page',
             'post_content' => '',
         ]);
-        log_msg("Halaman '{$title}' DIBUAT (ID: {$page_id}, Slug: /{$slug}).", "success");
+        log_msg("Halaman '{$title}' DIBUAT (ID: {$page_id}, Slug: /{$slug}, Status: PUBLISH).", "success");
     }
+
+    // Ganti status post secara langsung di DB jika diperlukan
+    global $wpdb;
+    $wpdb->update($wpdb->posts, ['post_status' => 'publish'], ['ID' => $page_id]);
 
     // Set Page Template di meta
     if ($template !== 'default') {
@@ -196,14 +213,18 @@ foreach ($pages_to_setup as $p) {
 log_msg("\n--- MENGATUR READING SETTINGS ---", "info");
 
 if ($front_page_id > 0) {
+    $wpdb->update($wpdb->posts, ['post_status' => 'publish'], ['ID' => $front_page_id]);
     update_option('show_on_front', 'page');
     update_option('page_on_front', $front_page_id);
-    log_msg("Front Page diset ke Halaman 'Beranda' (ID: {$front_page_id}).", "success");
+    $fp_status = get_post_status($front_page_id);
+    log_msg("Front Page diset ke Halaman 'Beranda' (ID: {$front_page_id}, Status: {$fp_status}).", "success");
 }
 
 if ($posts_page_id > 0) {
+    $wpdb->update($wpdb->posts, ['post_status' => 'publish'], ['ID' => $posts_page_id]);
     update_option('page_for_posts', $posts_page_id);
-    log_msg("Posts Page diset ke Halaman 'Artikel' (ID: {$posts_page_id}).", "success");
+    $pp_status = get_post_status($posts_page_id);
+    log_msg("Posts Page diset ke Halaman 'Artikel' (ID: {$posts_page_id}, Status: {$pp_status}).", "success");
 }
 
 // 6. Membuat & Menghubungkan Primary Nav Menu
@@ -291,10 +312,32 @@ $locations['primary'] = $menu_id;
 set_theme_mod('nav_menu_locations', $locations);
 log_msg("Menu '{$menu_name}' berhasil dipasang pada lokasi 'Primary Navigation'.", "success");
 
-// 7. Flush Rewrite Rules
-log_msg("\n--- FLUSH REWRITE RULES ---", "info");
+// 7. Flush Rewrite Rules & Clear Cache
+log_msg("\n--- FLUSH REWRITE RULES & CLEAR CACHE ---", "info");
 flush_rewrite_rules();
 log_msg("Rewrite rules berhasil di-flush.", "success");
+
+// Clear WordPress Object Cache
+wp_cache_flush();
+log_msg("Object cache WordPress dibersihkan.", "success");
+
+// Clear Plugin Caches (jika ada)
+if (function_exists('wp_cache_clear_cache')) {
+    wp_cache_clear_cache();
+    log_msg("WP Super Cache dibersihkan.", "success");
+}
+if (class_exists('LiteSpeed\Purge')) {
+    LiteSpeed\Purge::purge_all();
+    log_msg("LiteSpeed Cache dibersihkan.", "success");
+}
+if (function_exists('w3tc_flush_posts')) {
+    w3tc_flush_posts();
+    log_msg("W3 Total Cache dibersihkan.", "success");
+}
+if (function_exists('rocket_clean_domain')) {
+    rocket_clean_domain();
+    log_msg("WP Rocket dibersihkan.", "success");
+}
 
 log_msg("\n=======================================================", "success");
 log_msg("🎉 SETUP HALAMAN & TEMPLATE ORCHID CARE SELESAI!", "success");

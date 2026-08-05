@@ -334,9 +334,18 @@ if (function_exists('w3tc_flush_posts')) {
     w3tc_flush_posts();
     log_msg("W3 Total Cache dibersihkan.", "success");
 }
-if (function_exists('rocket_clean_domain')) {
-    rocket_clean_domain();
-    log_msg("WP Rocket dibersihkan.", "success");
+// Clear WP Content Cache Directory (WP Rocket, LiteSpeed, W3TC, FastCGI)
+$cache_dir = WP_CONTENT_DIR . '/cache';
+if (is_dir($cache_dir)) {
+    $files = new RecursiveIteratorIterator(
+        new RecursiveDirectoryIterator($cache_dir, RecursiveDirectoryIterator::SKIP_DOTS),
+        RecursiveIteratorIterator::CHILD_FIRST
+    );
+    foreach ($files as $fileinfo) {
+        $todo = ($fileinfo->isDir() ? 'rmdir' : 'unlink');
+        @$todo($fileinfo->getRealPath());
+    }
+    log_msg("Folder wp-content/cache/ (WP Rocket & Static Cache) dibersihkan secara total.", "success");
 }
 
 log_msg("\n=======================================================", "success");

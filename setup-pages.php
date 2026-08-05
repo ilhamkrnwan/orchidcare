@@ -328,7 +328,16 @@ if (function_exists('wp_cache_clear_cache')) {
 }
 if (class_exists('LiteSpeed\Purge')) {
     LiteSpeed\Purge::purge_all();
-    log_msg("LiteSpeed Cache dibersihkan.", "success");
+    log_msg("LiteSpeed Cache dibersihkan secara total.", "success");
+}
+
+// Matikan Opsi LiteSpeed Guest Mode & JS Defer di DB jika terinstall
+$ls_conf = get_option('litespeed.conf');
+if (is_array($ls_conf)) {
+    $ls_conf['optm-js_defer'] = 0;
+    $ls_conf['guest'] = 0;
+    update_option('litespeed.conf', $ls_conf);
+    log_msg("Opsi LiteSpeed (Guest Mode & JS Defer) ditonaktifkan untuk mencegah error 403.", "success");
 }
 if (function_exists('w3tc_flush_posts')) {
     w3tc_flush_posts();

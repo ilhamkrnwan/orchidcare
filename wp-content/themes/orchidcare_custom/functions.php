@@ -66,6 +66,11 @@ function orchid_enqueue() {
 }
 add_action('wp_enqueue_scripts', 'orchid_enqueue');
 
+// ── LiteSpeed Cache Compatibility Filters ────────────────────────────────────
+// Disable LiteSpeed JS Defer & Guest Optimization to prevent 403 guest.vary.php error & JS crash
+add_filter('litespeed_optm_js_defer', '__return_false');
+add_filter('litespeed_guest_optm', '__return_false');
+
 // ── Global Post Thumbnail Fallback & Error Handler Filter ─────────────────
 function orchid_post_thumbnail_fallback($html, $post_id, $post_thumbnail_id, $size, $attr) {
     $fallback_logo = ORCHID_URI . '/assets/img/logo.webp';

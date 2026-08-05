@@ -54,37 +54,13 @@
         });
     });
 
-    // ── Scroll reveal ─────────────────────────────────────────────
+    // ── Scroll reveal — force immediate visibility ─────────────────
     var reveals = document.querySelectorAll('.reveal');
-    var revealAll = function () {
-        reveals.forEach(function (el) { el.classList.add('is-visible'); });
-    };
-
-    if (reduceMotion || !('IntersectionObserver' in window)) {
-        revealAll();
-    } else {
-        var io = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-                if (entry.isIntersecting || entry.intersectionRatio > 0) {
-                    entry.target.classList.add('is-visible');
-                    io.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.01, rootMargin: '150px 0px 150px 0px' });
-
-        reveals.forEach(function (el) {
-            var rect = el.getBoundingClientRect();
-            // Immediate check for elements in initial viewport or top of page
-            if (rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 1.25) {
-                el.classList.add('is-visible');
-            } else {
-                io.observe(el);
-            }
-        });
-
-        // Fail-safe: Reveal any remaining hidden elements after 1.2s
-        setTimeout(revealAll, 1200);
-    }
+    reveals.forEach(function (el) {
+        el.classList.add('is-visible');
+        el.style.opacity = '1';
+        el.style.visibility = 'visible';
+    });
 
     // ── Scroll to top ─────────────────────────────────────────────
     var scrollUp = document.getElementById('orchid-scroll-up');

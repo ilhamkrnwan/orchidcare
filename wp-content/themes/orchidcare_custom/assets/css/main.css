@@ -1891,10 +1891,10 @@ body.admin-bar .site-header {
 /* Large Direct Icon (No container box, big & prominent like reference image) */
 .kat-card__icon {
     position: absolute;
-    bottom: -0.75rem;
-    right: -0.75rem;
-    width: 170px;
-    height: 170px;
+    bottom: -0.5rem;
+    right: -0.5rem;
+    width: 190px;
+    height: 107px;
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;

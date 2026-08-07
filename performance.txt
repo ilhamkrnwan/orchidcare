@@ -1,0 +1,367 @@
+Mendiagnosis masalah performa
+71
+Performa
+88
+Aksesibilitas
+100
+Praktik Terbaik
+92
+SEO
+2/3
+Penjelajahan Agentic
+71
+FCP
++5
+LCP
++7
+TBT
++29
+CLS
++25
+SI
++5
+Performa
+Nilai adalah hasil perkiraan dan dapat bervariasi. Skor performa dihitung secara langsung dari metrik ini.Lihat kalkulator.
+0–49
+50–89
+90–100
+Final Screenshot
+
+Metrik
+Ciutkan tampilan
+First Contentful Paint
+3,1 dtk
+First Contentful Paint menandai waktu saat teks atau gambar pertama di-paint. Pelajari lebih lanjut metrik First Contentful Paint.
+Largest Contentful Paint
+4,9 dtk
+Largest Contentful Paint menunjukkan waktu saat teks atau gambar terbesar di-paint. Pelajari lebih lanjut metrik Largest Contentful Paint
+Total Blocking Time
+130 md
+Jumlah semua jangka waktu antara FCP dan Waktu untuk Interaktif, ketika durasi tugas melebihi 50 md, dinyatakan dalam milidetik. Pelajari lebih lanjut metrik Total Blocking Time.
+Cumulative Layout Shift
+0
+Pergeseran Tata Letak Kumulatif (CLS) mengukur perpindahan elemen yang terlihat dalam area pandang. Pelajari lebih lanjut metrik Pergeseran Tata Letak Kumulatif.
+Speed Index
+5,6 dtk
+Speed Index menunjukkan seberapa cepat konten halaman terlihat terisi lengkap. Pelajari lebih lanjut metrik Speed Index.
+Captured at 7 Agu 2026, 15.13 WIB
+Moto G Power Teremulasi with Lighthouse 13.4.1
+Sesi satu halaman
+Pemuatan halaman awal
+Throttle 4G lambat
+Using HeadlessChromium 150.0.7871.186 with lr
+Lihat Peta Hierarki
+Screenshot
+Screenshot
+Screenshot
+Screenshot
+Screenshot
+Screenshot
+Screenshot
+Screenshot
+Tampilkan audit yang relevan dengan:
+
+All
+
+FCP
+
+LCP
+
+TBT
+
+CLS
+Insight
+Meningkatkan penayangan gambar Perkiraan penghematan 950 KiB
+Mengurangi waktu download gambar dapat meningkatkan waktu pemuatan halaman dan LCP. Pelajari lebih lanjut cara mengoptimalkan ukuran gambarLCPFCPTidak dinilai
+URL
+Ukuran Resource
+Perkiraan Penghematan
+orchidbrand.id Pihak pertama
+1.016,7 KiB	949,9 KiB
+Orchid Care Logo
+<img src="https://orchidbrand.id/wp-content/themes/orchidcare_custom/assets/img/logo…" alt="Orchid Care Logo" class="site-logo-img" width="190" height="55">
+…img/logo.webp(orchidbrand.id)
+413,8 KiB
+413,3 KiB
+File gambar ini lebih besar dari yang diperlukan (4938x1676) untuk dimensi yang ditampilkan (165x56). Gunakan gambar responsif untuk mengurangi ukuran download gambar.
+413,3 KiB
+Pusat Sabun Cuci Piring, Deterjen Laundry, Pembersih Lantai, dan Biang Konsentr…
+<img src="https://orchidbrand.id/wp-content/themes/orchidcare_custom/assets/img/gamb…" alt="Pusat Sabun Cuci Piring, Deterjen Laundry, Pembersih Lantai, dan Biang Kon…" width="900" height="900" loading="eager" class="hero-img">
+…img/gambar-awal.png(orchidbrand.id)
+406,2 KiB
+358,8 KiB
+Menggunakan format gambar modern (WebP, AVIF) atau meningkatkan kompresi gambar dapat meningkatkan ukuran download gambar ini.
+358,8 KiB
+Icon Parfum Laundry
+<img src="https://orchidbrand.id/wp-content/themes/orchidcare_custom/assets/img/icon…" alt="Icon Parfum Laundry" loading="lazy" width="120" height="120">
+…icon/icon-malabeez-parfum.png(orchidbrand.id)
+39,5 KiB
+35,8 KiB
+File gambar ini lebih besar dari yang diperlukan (960x540) untuk dimensi yang ditampilkan (298x167). Gunakan gambar responsif untuk mengurangi ukuran download gambar.
+35,8 KiB
+Icon Shampoo Mobil dan Semir Ban
+<img src="https://orchidbrand.id/wp-content/themes/orchidcare_custom/assets/img/icon…" alt="Icon Shampoo Mobil dan Semir Ban" loading="lazy" width="120" height="120">
+…icon/icon-chemical-autocare.png(orchidbrand.id)
+35,8 KiB
+32,3 KiB
+File gambar ini lebih besar dari yang diperlukan (960x540) untuk dimensi yang ditampilkan (298x167). Gunakan gambar responsif untuk mengurangi ukuran download gambar.
+32,3 KiB
+Icon Sabun Pel dan Pembersih Rumah
+<img src="https://orchidbrand.id/wp-content/themes/orchidcare_custom/assets/img/icon…" alt="Icon Sabun Pel dan Pembersih Rumah" loading="lazy" width="120" height="120">
+…icon/icon-chemical-household.png(orchidbrand.id)
+31,7 KiB
+28,7 KiB
+File gambar ini lebih besar dari yang diperlukan (960x540) untuk dimensi yang ditampilkan (298x167). Gunakan gambar responsif untuk mengurangi ukuran download gambar.
+28,7 KiB
+Icon Biang Konsentrat Sabun
+<img src="https://orchidbrand.id/wp-content/themes/orchidcare_custom/assets/img/icon…" alt="Icon Biang Konsentrat Sabun" loading="lazy" width="120" height="120">
+…icon/icon-chemical-paket-bahan.png(orchidbrand.id)
+30,4 KiB
+27,5 KiB
+File gambar ini lebih besar dari yang diperlukan (960x540) untuk dimensi yang ditampilkan (298x167). Gunakan gambar responsif untuk mengurangi ukuran download gambar.
+27,5 KiB
+Icon Sanitasi Care dan Disinfektan
+<img src="https://orchidbrand.id/wp-content/themes/orchidcare_custom/assets/img/icon…" alt="Icon Sanitasi Care dan Disinfektan" loading="lazy" width="120" height="120">
+…icon/icon-chemical-sanitasi.png(orchidbrand.id)
+29,8 KiB
+26,9 KiB
+File gambar ini lebih besar dari yang diperlukan (960x540) untuk dimensi yang ditampilkan (298x167). Gunakan gambar responsif untuk mengurangi ukuran download gambar.
+26,9 KiB
+Icon Deterjen Laundry
+<img src="https://orchidbrand.id/wp-content/themes/orchidcare_custom/assets/img/icon…" alt="Icon Deterjen Laundry" loading="lazy" width="120" height="120">
+…icon/icon-chemical-laundry.png(orchidbrand.id)
+29,5 KiB
+26,6 KiB
+File gambar ini lebih besar dari yang diperlukan (960x540) untuk dimensi yang ditampilkan (298x167). Gunakan gambar responsif untuk mengurangi ukuran download gambar.
+26,6 KiB
+Permintaan pemblokiran render Perkiraan penghematan 940 md
+Permintaan memblokir render awal halaman, yang dapat menunda LCP. Penundaan atau penyisipan dapat memindahkan permintaan jaringan ini dari jalur penting.LCPFCPTidak dinilai
+URL
+Ukuran Transfer
+Durasi
+orchidbrand.id Pihak pertama
+10,9 KiB	250 md
+…css/cfb2715….css?ver=df7e0(orchidbrand.id)
+10,9 KiB
+250 md
+Google Fonts cdn 
+1,9 KiB	750 md
+/css2?family=…(fonts.googleapis.com)
+1,9 KiB
+750 md
+Ubah posisi/geometri yang dipaksa
+Perubahan posisi/geometri paksa terjadi saat JavaScript meminta properti geometris (seperti offsetWidth) setelah gaya dibatalkan karena perubahan pada status DOM. Hal ini dapat menyebabkan performa yang buruk. Pelajari lebih lanjut perubahan posisi/geometri paksa dan kemungkinan mitigasinya.Tidak dinilai
+Sumber
+Total waktu perubahan posisi/geometri
+…js/b03f7ba….js?ver=ba154:1:234(orchidbrand.id)
+492 md
+…js/b03f7ba….js?ver=ba154:3:786(orchidbrand.id)
+1 md
+Perincian LCP
+Setiap subbagian memiliki strategi peningkatan tertentu. Idealnya, sebagian besar waktu LCP harus digunakan untuk memuat resource, bukan untuk penundaan.LCPTidak dinilai
+Subbagian
+Durasi
+Time to first byte
+100 md
+Penundaan render elemen
+2.530 md
+Orchid Care memproduksi langsung deterjen cair laundry, sabun cuci piring, sabu…
+<p class="hero-subtitle">
+Hierarki dependensi jaringan
+Hindari perantaian permintaan penting dengan mengurangi panjang rantai, mengurangi ukuran download resource, atau menunda download resource yang tidak penting untuk mempercepat pemuatan halaman.LCPTidak dinilai
+Latensi jalur kritis maksimal: 2.498 md
+Navigasi Awal
+https://orchidbrand.id - 386 md, 18,28 KiB
+/css2?family=…(fonts.googleapis.com) - 404 md, 1,85 KiB
+…v23/wXKrE3kTp….woff2(fonts.gstatic.com) - 2.425 md, 33,07 KiB
+…v20/UcC73FwrK….woff2(fonts.gstatic.com) - 2.425 md, 48,09 KiB
+…v24/tDbv2o-fl….woff2(fonts.gstatic.com) - 2.430 md, 31,40 KiB
+…css/cfb2715….css?ver=df7e0(orchidbrand.id) - 499 md, 10,87 KiB
+…js/b03f7ba….js?ver=ba154(orchidbrand.id) - 2.498 md, 1,32 KiB
+Origin yang dihubungkan sebelumnya
+Petunjuk prakoneksi membantu browser membuat koneksi lebih awal saat halaman dimuat, sehingga dapat menghemat waktu ketika permintaan ke origin tersebut dibuat pertama kali. Berikut ini adalah origin yang telah terhubung ke halaman sebelumnya.
+tidak ada origin yang dihubungkan sebelumnya
+Kandidat prakoneksi
+Tambahkan petunjuk prakoneksi ke origin yang paling penting, tetapi usahakan untuk menggunakan tidak lebih dari 4 petunjuk.
+Tidak ada origin tambahan yang cocok untuk prakoneksi
+Gunakan durasi cache yang efisien Perkiraan penghematan 1 KiB
+Optimalkan ukuran DOM
+Pihak ketiga
+Insight ini juga tersedia di Panel Performa Chrome DevTools - rekam aktivitas untuk melihat informasi yang lebih mendetail.
+Diagnostik
+Minimalkan pekerjaan thread utama 3,3 dtk
+Sebaiknya kurangi waktu yang dihabiskan untuk mengurai, mengompilasi, dan mengeksekusi JS. Coba kirim payload JS yang lebih kecil untuk membantu mengurangi waktu. Pelajari cara meminimalkan pekerjaan thread utamaTBTTidak dinilai
+Kategori
+Waktu yang Dihabiskan
+Style & Layout
+2.877 md
+Other
+375 md
+Parse HTML & CSS
+33 md
+Rendering
+31 md
+Script Evaluation
+28 md
+Script Parsing & Compilation
+1 md
+Elemen gambar tidak memiliki width dan height yang jelas
+Setel lebar dan tinggi yang jelas pada elemen gambar untuk mengurangi pergeseran tata letak dan memperbaiki CLS. Pelajari cara menyetel dimensi gambarCLSTidak dinilai
+URL
+orchidbrand.id Pihak pertama
+Orchid Care Logo
+<img src="https://orchidbrand.id/wp-content/themes/orchidcare_custom/assets/img/logo…" alt="Orchid Care Logo" class="mobile-drawer-logo">
+…img/logo.webp(orchidbrand.id)
+Orchid Care Logo
+<img src="https://orchidbrand.id/wp-content/themes/orchidcare_custom/assets/img/logo…" alt="Orchid Care Logo" style="height: 48px; width: auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+…img/logo.webp(orchidbrand.id)
+Tidak dapat diatribusikan
+Produsen Deterjen Cair Laundry, Pelicin Setrika, dan Pelembut Pakaian Kiloan Or…
+<img src="" alt="Produsen Deterjen Cair Laundry, Pelicin Setrika, dan Pelembut Pakaian Kilo…" loading="lazy" style="width: 100%; height: auto; display: block; object-fit: cover;">
+Sabun Cuci Piring Pekat dan Sabun Pel Lantai Wangi Orchid Care
+<img src="" alt="Sabun Cuci Piring Pekat dan Sabun Pel Lantai Wangi Orchid Care" loading="lazy" style="width: 100%; height: auto; display: block; object-fit: cover;">
+Shampoo Mobil Busa Melimpah dan Semir Ban Kinclong Wet Look Orchid Care
+<img src="" alt="Shampoo Mobil Busa Melimpah dan Semir Ban Kinclong Wet Look Orchid Care" loading="lazy" style="width: 100%; height: auto; display: block; object-fit: cover;">
+Biang Sabun Cuci Piring dan Biang Deterjen Konsentrat 1kg racik 15L Orchid Care
+<img src="" alt="Biang Sabun Cuci Piring dan Biang Deterjen Konsentrat 1kg racik 15L Orchid…" loading="lazy" style="width: 100%; height: auto; display: block; object-fit: cover;">
+Parfum Laundry Wangi Tahan Lama dan Parfum Baju Malabeez Orchid Care
+<img src="" alt="Parfum Laundry Wangi Tahan Lama dan Parfum Baju Malabeez Orchid Care" loading="lazy" style="width: 100%; height: auto; display: block; object-fit: cover;">
+Produk Sanitasi Care dan Disinfektan Anti-Bakteri Orchid Care
+<img src="" alt="Produk Sanitasi Care dan Disinfektan Anti-Bakteri Orchid Care" loading="lazy" style="width: 100%; height: auto; display: block; object-fit: cover;">
+Hindari tugas thread utama yang berjalan lama 5 tugas berjalan lama
+Informasi selengkapnya tentang performa aplikasi Anda. Angka ini tidak secara langsung memengaruhi skor Performa.
+Lulus audit (16)
+Tampilkan
+88
+Aksesibilitas
+Pemeriksaan ini menandai peluang untuk meningkatkan aksesibilitas aplikasi web Anda. Deteksi otomatis hanya dapat mendeteksi sebagian masalah dan tidak menjamin aksesibilitas aplikasi web Anda, sehingga pengujian manual juga dianjurkan.
+Nama dan label
+Elemen "select" tidak memiliki elemen label terkait.
+Elemen "form" tanpa label yang efektif dapat menciptakan pengalaman yang membingungkan bagi pengguna pembaca layar. Pelajari elemen select lebih lanjut .
+Elemen yang Gagal
+Pilih Kategori Produk Sabun & Deterjen Laundry Parfum Laundry & Wewangian Sabun…
+<select name="kategori" class="field-select">
+Ini adalah peluang untuk meningkatkan semantik kontrol dalam aplikasi Anda. Hal ini dapat menyempurnakan pengalaman bagi pengguna teknologi asistif, seperti pembaca layar.
+Kontras
+Warna latar belakang dan latar depan tidak memiliki rasio kontras yang cukup.
+Teks yang memiliki kontras rendah akan sulit atau tidak mungkin dibaca oleh kebanyakan pengguna. Pelajari cara memberikan kontras warna yang memadai.
+Elemen yang Gagal
+Diformulasikan langsung oleh PT Indotech Berkah Abadi untuk kebutuhan rumah tan…
+<p class="section-desc">
+KATALOG PRODUK UTAMA Kategori Produk Orchid Care Diformulasikan langsung oleh …
+<section class="kategori-section" id="kategori">
+LAUNDRY CARE
+<span class="kat-card__label">
+LAUNDRY CARE Sabun & Deterjen Laundry Deterjen cair laundry, pelembut pakaian …
+<a href="#kategori-laundry" class="kat-card kat-card--mint reveal is-visible" style="opacity: 1; visibility: visible;">
+PARFUM & WEWANGIAN
+<span class="kat-card__label">
+PARFUM & WEWANGIAN Malabeez Perfume Parfum laundry wangi tahan lama, parfum ba…
+<a href="#kategori-parfum" class="kat-card kat-card--lavender reveal is-visible" style="opacity: 1; visibility: visible;">
+HOME CARE
+<span class="kat-card__label">
+HOME CARE Sabun Pel & Pembersih Rumah Sabun cuci piring pekat, sabun pel lanta…
+<a href="#kategori-rumah-tangga" class="kat-card kat-card--peach reveal is-visible" style="opacity: 1; visibility: visible;">
+SANITASI CARE
+<span class="kat-card__label">
+SANITASI CARE Produk Sanitasi & Disinfektan Cairan sanitasi antiseptik, disinf…
+<a href="#kategori-sanitasi" class="kat-card kat-card--butter reveal is-visible" style="opacity: 1; visibility: visible;">
+AUTO CARE
+<span class="kat-card__label">
+AUTO CARE Perawatan Otomotif Shampoo mobil busa melimpah (snow wash), semir ba…
+<a href="#kategori-automotive" class="kat-card kat-card--mint reveal is-visible" style="opacity: 1; visibility: visible;">
+BIANG KONSENTRAT
+<span class="kat-card__label">
+BIANG KONSENTRAT Biang & Konsentrat Sabun Biang sabun cuci piring & deterjen (…
+<a href="#kategori-biang" class="kat-card kat-card--lavender reveal is-visible" style="opacity: 1; visibility: visible;">
+AUTO CARE · PERAWATAN OTOMOTIF
+<span class="chip-tag" style="background: rgba(37, 99, 235, 0.12); color: rgb(37, 99, 235);">
+CUCI MOBIL & MOTOR AUTO CARE · PERAWATAN OTOMOTIF Shampoo Mobil Busa Melimpah &…
+<section class="feature-section" id="kategori-automotive" style="padding: 4.5rem 0px; background: rgb(255, 255, 255);">
+BIANG KONSENTRAT · HEMAT ONGKIR & PELUANG USAHA
+<span class="chip-tag" style="background: rgba(136, 196, 37, 0.2); color: rgb(136, 196, 37);">
+BIANG KONSENTRAT · HEMAT ONGKIR & PELUANG USAHA Biang Sabun & Deterjen Konsentr…
+<section class="feature-section" id="kategori-biang" style="padding: 4.5rem 0px; background: rgb(22, 54, 30); color: rgb(255, 255, 255);">
+© 2026 Orchid Care by PT Indotech Berkah Abadi. Hak Cipta Dilindungi.
+<div>
+PT INDOTECH BERKAH ABADI (SLEMAN, YOGYAKARTA) Lini merek utama dari PT Indotec…
+<footer class="site-footer" id="kontak" style="background: rgb(11, 19, 43); color: rgb(203, 213, 225); font-family: var(--font-sans, 'Inter'…;">
+Orchid Care
+<strong>
+PT INDOTECH BERKAH ABADI (SLEMAN, YOGYAKARTA) Lini merek utama dari PT Indotec…
+<footer class="site-footer" id="kontak" style="background: rgb(11, 19, 43); color: rgb(203, 213, 225); font-family: var(--font-sans, 'Inter'…;">
+Kebijakan Privasi
+<a href="https://orchidbrand.id/kebijakan-privasi" style="color: #64748b; text-decoration: none;">
+PT INDOTECH BERKAH ABADI (SLEMAN, YOGYAKARTA) Lini merek utama dari PT Indotec…
+<footer class="site-footer" id="kontak" style="background: rgb(11, 19, 43); color: rgb(203, 213, 225); font-family: var(--font-sans, 'Inter'…;">
+Syarat & Ketentuan
+<a href="https://orchidbrand.id/syarat-dan-ketentuan" style="color: #64748b; text-decoration: none;">
+PT INDOTECH BERKAH ABADI (SLEMAN, YOGYAKARTA) Lini merek utama dari PT Indotec…
+<footer class="site-footer" id="kontak" style="background: rgb(11, 19, 43); color: rgb(203, 213, 225); font-family: var(--font-sans, 'Inter'…;">
+Kebijakan Cookie
+<a href="https://orchidbrand.id/kebijakan-cookie" style="color: #64748b; text-decoration: none;">
+PT INDOTECH BERKAH ABADI (SLEMAN, YOGYAKARTA) Lini merek utama dari PT Indotec…
+<footer class="site-footer" id="kontak" style="background: rgb(11, 19, 43); color: rgb(203, 213, 225); font-family: var(--font-sans, 'Inter'…;">
+Ini adalah peluang untuk meningkatkan keterbacaan konten Anda.
+Navigasi
+Elemen judul muncul tidak dalam urutan menurun yang berurutan
+Judul yang diurutkan dengan benar yang tidak melewati level akan menyampaikan struktur semantik halaman, membuatnya lebih mudah dilihat dan dipahami ketika menggunakan teknologi pendukung. Pelajari lebih lanjut urutan judul.
+Elemen yang Gagal
+KATEGORI PRODUK
+<h4 style="font-size: 0.8rem; font-weight: 700; color: rgb(148, 163, 184);">
+Ini adalah peluang untuk menyempurnakan navigasi keyboard pada aplikasi Anda.
+Praktik terbaik
+Link yang identik memiliki fungsi yang sama.
+Item berikut memperjelas praktik terbaik yang umum untuk aksesibilitas.
+Item tambahan untuk diperiksa secara manual (10)
+Tampilkan
+Item berikut ini menangani area yang tidak dapat dicakup oleh fitur pengujian otomatis. Pelajari lebih lanjut dalam panduan kami tentang menjalankan tinjauan aksesibilitas.
+Lulus audit (19)
+Tampilkan
+Tidak berlaku (40)
+Tampilkan
+100
+Praktik Terbaik
+Kepercayaan dan Keamanan
+Pastikan CSP efektif melawan serangan XSS
+Menggunakan kebijakan HSTS yang kuat
+Memastikan isolasi origin yang tepat dengan COOP
+Mitigasi clickjacking dengan XFO atau CSP
+Memitigasi XSS berbasis DOM dengan Trusted Types
+Kompatibilitas Browser
+Fitur Baseline
+Umum
+Library JavaScript yang terdeteksi
+Lulus audit (13)
+Tampilkan
+Tidak berlaku (1)
+Tampilkan
+92
+SEO
+Pemeriksaan ini memastikan bahwa halaman Anda mengikuti saran pengoptimalan mesin telusur dasar. Ada banyak faktor tambahan yang tidak diperhitungkan oleh Lighthouse di sini yang mungkin memengaruhi peringkat penelusuran Anda, termasuk performa di Data Web Inti. Pelajari lebih lanjut Google Penelusuran Essentials.
+Praktik Terbaik Konten
+Dokumen tidak memiliki deskripsi meta
+Deskripsi meta mungkin disertakan dalam hasil penelusuran untuk merangkum isi halaman dengan singkat. Pelajari lebih lanjut deskripsi meta.
+Format HTML Anda dengan cara yang memungkinkan crawler untuk lebih memahami konten aplikasi Anda.
+Item tambahan untuk diperiksa secara manual (1)
+Tampilkan
+Jalankan validator tambahan ini di situs Anda untuk memeriksa praktik terbaik SEO lainnya.
+Lulus audit (9)
+Tampilkan
+2/3
+Penjelajahan Agentic
+Pemeriksaan ini memastikan situs berkualitas tinggi yang dapat dijelajahi oleh agen AI serta memvalidasi ketepatan integrasi WebMCP. Kategori ini masih dalam pengembangan dan dapat berubah sewaktu-waktu.
+Aksesibilitas Agen
+Struktur aksesibilitas tidak terbentuk dengan baik
+Struktur aksesibilitas yang baik membantu agen AI menavigasi dan berinteraksi dengan halaman.
+Audit yang Gagal
+Deskripsi
+Elemen yang Gagal
+Select element must have an accessible name
+Pilih Kategori Produk Sabun & Deterjen Laundry Parfum Laundry & Wewangian Sabun…
+<select name="kategori" class="field-select">
+Audit ini menyoroti praktik terbaik untuk meningkatkan kualitas aksesibilitas situs bagi agen AI.
+Lulus audit (2)
+Tampilkan
+Tidak berlaku (3)
+T

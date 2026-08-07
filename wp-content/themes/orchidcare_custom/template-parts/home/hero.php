@@ -39,8 +39,8 @@ $cta2_url = orchid_opt('hero_cta2_url', orchid_wa_url('Halo Orchid Care, saya in
             <!-- Category search bar -->
             <form action="<?php echo esc_url(home_url('/produk')); ?>" method="get" class="hero-search-card">
                 <div class="search-field">
-                    <label class="field-label">Kategori Produk</label>
-                    <select name="kategori" class="field-select">
+                    <label class="field-label" for="hero-kategori-select">Kategori Produk</label>
+                    <select name="kategori" id="hero-kategori-select" class="field-select" aria-label="Pilih Kategori Produk">
                         <option value="">Pilih Kategori Produk</option>
                         <option value="sabun-laundry">Sabun &amp; Deterjen Laundry</option>
                         <option value="malabeez-perfume">Parfum Laundry &amp; Wewangian</option>
@@ -75,7 +75,7 @@ $cta2_url = orchid_opt('hero_cta2_url', orchid_wa_url('Halo Orchid Care, saya in
 
         <!-- Hero visual — product image directly -->
         <div class="hero-visual reveal">
-            <img src="<?php echo esc_url(ORCHID_URI . '/assets/img/gambar-awal.png'); ?>"
+            <img src="<?php echo esc_url(ORCHID_URI . '/assets/img/gambar-awal.webp'); ?>"
                  alt="Pusat Sabun Cuci Piring, Deterjen Laundry, Pembersih Lantai, dan Biang Konsentrat — Orchid Care"
                  width="900" height="900"
                  loading="eager"

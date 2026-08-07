@@ -30,7 +30,7 @@
                     <p class="kat-card__desc">Deterjen cair laundry, pelembut pakaian (softener), pelicin setrika, &amp; pencerah warna.</p>
                 </div>
                 <div class="kat-card__icon">
-                    <img src="<?php echo esc_url(ORCHID_URI . '/assets/img/icon/icon-chemical-laundry.png'); ?>" alt="Icon Deterjen Laundry" loading="lazy" width="120" height="120">
+                    <img src="<?php echo esc_url(ORCHID_URI . '/assets/img/icon/icon-chemical-laundry.webp'); ?>" alt="Icon Deterjen Laundry" loading="lazy" width="120" height="120">
                 </div>
             </a>
 
@@ -42,7 +42,7 @@
                     <p class="kat-card__desc">Parfum laundry wangi tahan lama, parfum baju, &amp; wewangian linen aroma mewah.</p>
                 </div>
                 <div class="kat-card__icon">
-                    <img src="<?php echo esc_url(ORCHID_URI . '/assets/img/icon/icon-malabeez-parfum.png'); ?>" alt="Icon Parfum Laundry" loading="lazy" width="120" height="120">
+                    <img src="<?php echo esc_url(ORCHID_URI . '/assets/img/icon/icon-malabeez-parfum.webp'); ?>" alt="Icon Parfum Laundry" loading="lazy" width="120" height="120">
                 </div>
             </a>
 
@@ -54,7 +54,7 @@
                     <p class="kat-card__desc">Sabun cuci piring pekat, sabun pel lantai wangi, pembersih kaca, &amp; hand soap anti-bakteri.</p>
                 </div>
                 <div class="kat-card__icon">
-                    <img src="<?php echo esc_url(ORCHID_URI . '/assets/img/icon/icon-chemical-household.png'); ?>" alt="Icon Sabun Pel dan Pembersih Rumah" loading="lazy" width="120" height="120">
+                    <img src="<?php echo esc_url(ORCHID_URI . '/assets/img/icon/icon-chemical-household.webp'); ?>" alt="Icon Sabun Pel dan Pembersih Rumah" loading="lazy" width="120" height="120">
                 </div>
             </a>
 
@@ -66,7 +66,7 @@
                     <p class="kat-card__desc">Cairan sanitasi antiseptik, disinfektan pembunuh kuman, &amp; pembersih higienis untuk ruang publik.</p>
                 </div>
                 <div class="kat-card__icon">
-                    <img src="<?php echo esc_url(ORCHID_URI . '/assets/img/icon/icon-chemical-sanitasi.png'); ?>" alt="Icon Sanitasi Care dan Disinfektan" loading="lazy" width="120" height="120">
+                    <img src="<?php echo esc_url(ORCHID_URI . '/assets/img/icon/icon-chemical-sanitasi.webp'); ?>" alt="Icon Sanitasi Care dan Disinfektan" loading="lazy" width="120" height="120">
                 </div>
             </a>
 
@@ -78,7 +78,7 @@
                     <p class="kat-card__desc">Shampoo mobil busa melimpah (snow wash), semir ban wet-look kinclong, &amp; pengilap bodi motor.</p>
                 </div>
                 <div class="kat-card__icon">
-                    <img src="<?php echo esc_url(ORCHID_URI . '/assets/img/icon/icon-chemical-autocare.png'); ?>" alt="Icon Shampoo Mobil dan Semir Ban" loading="lazy" width="120" height="120">
+                    <img src="<?php echo esc_url(ORCHID_URI . '/assets/img/icon/icon-chemical-autocare.webp'); ?>" alt="Icon Shampoo Mobil dan Semir Ban" loading="lazy" width="120" height="120">
                 </div>
             </a>
 
@@ -90,7 +90,7 @@
                     <p class="kat-card__desc">Biang sabun cuci piring &amp; deterjen (1 kg jadi 15 Liters) — hemat ongkir &amp; cocok untuk reseller.</p>
                 </div>
                 <div class="kat-card__icon">
-                    <img src="<?php echo esc_url(ORCHID_URI . '/assets/img/icon/icon-chemical-paket-bahan.png'); ?>" alt="Icon Biang Konsentrat Sabun" loading="lazy" width="120" height="120">
+                    <img src="<?php echo esc_url(ORCHID_URI . '/assets/img/icon/icon-chemical-paket-bahan.webp'); ?>" alt="Icon Biang Konsentrat Sabun" loading="lazy" width="120" height="120">
                 </div>
             </a>
 

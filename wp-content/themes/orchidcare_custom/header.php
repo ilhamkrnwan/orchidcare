@@ -4,6 +4,8 @@
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="profile" href="https://gmpg.org/xfn/11">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
@@ -33,7 +35,7 @@ $wa_url   = orchid_wa_url('Halo Orchid Care, saya ingin bertanya mengenai produk
         <nav class="primary-nav" id="primary-nav" aria-label="Navigasi Utama">
             <div class="mobile-nav-top">
                 <a href="<?php echo esc_url(home_url('/')); ?>" class="mobile-logo-link">
-                    <img src="<?php echo esc_url(ORCHID_URI . '/assets/img/logo.webp'); ?>" alt="Orchid Care Logo" class="mobile-drawer-logo">
+                    <img src="<?php echo esc_url(ORCHID_URI . '/assets/img/logo.webp'); ?>" alt="Orchid Care Logo" class="mobile-drawer-logo" width="190" height="55">
                 </a>
             </div>
 

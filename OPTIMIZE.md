@@ -83,19 +83,18 @@
 
 ## 📋 Checklist Eksekusi Perbaikan
 
-- [ ] **Image Optimization**:
-  - [ ] Resize & kompres `logo.webp`
-  - [ ] Convert `gambar-awal.png` ke `.webp`
-  - [ ] Resize & kompres icon kategori ke 240x240px WebP
-  - [ ] Set atribut `width` dan `height` pada semua tag `<img>`
-- [ ] **Asset Loading**:
-  - [ ] Preconnect Google Fonts domain
-  - [ ] Defer / Async non-critical CSS/JS
-- [ ] **JavaScript Optimization**:
-  - [ ] Fix forced layout reflow di JS script main
-- [ ] **Accessibility & Agentic**:
-  - [ ] Tambahkan `aria-label` / `<label>` pada `<select name="kategori">`
+- [x] **Phase 0 Baseline & Plan**:
+  - [x] Dokumentasi `performance.txt` & pembuatan `OPTIMIZE.md`
+  - [x] Commit Git checkpoint awal
+- [x] **Phase 1 Image Optimization & Asset Loading**:
+  - [x] Resize & kompres `logo.webp` (dari 423 KiB ke 12 KiB)
+  - [x] Convert `gambar-awal.png` ke `gambar-awal.webp` (dari 415 KiB PNG ke 73 KiB WebP)
+  - [x] Resize & convert 6 icon kategori PNG ke WebP 240x240px (total hemat ~180 KiB)
+  - [x] Set atribut `width` dan `height` pada `mobile-drawer-logo`
+  - [x] Tambahkan `<link rel="preconnect">` untuk Google Fonts di `header.php`
+  - [x] Tambahkan atribut `id`, `for`, dan `aria-label` pada form select kategori di `hero.php`
+- [ ] **Phase 2 Accessibility & CSS/JS Optimization**:
   - [ ] Adjust warna footer link & tag chip untuk WCAG AA contrast (4.5:1+)
-  - [ ] Perbaiki urutan tag Heading
-- [ ] **SEO**:
+  - [ ] Perbaiki urutan tag Heading di bento & section
+- [ ] **Phase 3 SEO Optimization**:
   - [ ] Tambahkan `<meta name="description">` pada header theme

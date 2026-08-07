@@ -399,5 +399,22 @@ function orchid_ajax_load_more_products() {
 add_action('wp_ajax_orchid_load_more_products', 'orchid_ajax_load_more_products');
 add_action('wp_ajax_nopriv_orchid_load_more_products', 'orchid_ajax_load_more_products');
 
-
-
+// ── Dynamic SEO Meta Description ──────────────────────────────────────────────
+function orchid_add_meta_description() {
+    if (is_front_page() || is_home()) {
+        $desc = "Pabrik & Supplier Sabun Tangan Pertama di Sleman Yogyakarta. Produsen deterjen cair laundry, parfum laundry, sabun pel, dan biang konsentrat 1kg jadi 15L.";
+    } elseif (is_singular() && has_excerpt()) {
+        $desc = wp_strip_all_tags(get_the_excerpt());
+    } elseif (is_singular()) {
+        $desc = wp_strip_all_tags(mb_strimwidth(get_the_content(), 0, 155, '...'));
+    } elseif (is_archive()) {
+        $desc = wp_strip_all_tags(get_the_archive_description());
+    }
+    
+    if (empty($desc)) {
+        $desc = "Orchid Care diproduksi langsung oleh PT Indotech Berkah Abadi. Pabrik sabun laundry, wewangian linen, pembersih PKRT, dan biang konsentrat Sleman Yogyakarta.";
+    }
+    
+    echo '<meta name="description" content="' . esc_attr(trim($desc)) . '">' . "\n";
+}
+add_action('wp_head', 'orchid_add_meta_description', 1);

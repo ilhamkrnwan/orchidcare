@@ -1863,10 +1863,10 @@ body.admin-bar .site-header {
 .kat-card__label {
     font-family: var(--font-mono);
     font-size: 0.72rem;
-    font-weight: 700;
+    font-weight: 800;
     letter-spacing: 0.06em;
     color: var(--ink);
-    opacity: 0.65;
+    opacity: 0.9;
     margin-bottom: 0.5rem;
     display: block;
     text-transform: uppercase;

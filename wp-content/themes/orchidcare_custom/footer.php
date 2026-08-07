@@ -71,7 +71,7 @@ $wa_retail    = 'https://api.whatsapp.com/send?phone=6285559474797&text=' . rawu
 
                 <!-- ═══ KOLOM 2: NAVIGASI PRODUK (6 KATEGORI UTAMA) ═══ -->
                 <div class="footer-nav-col">
-                    <h4 style="font-size: 0.8rem; font-weight: 700; color: #94a3b8; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1.5rem;">KATEGORI PRODUK</h4>
+                    <div class="footer-col-heading" style="font-size: 0.8rem; font-weight: 700; color: #94a3b8; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1.5rem;">KATEGORI PRODUK</div>
                     <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.85rem;">
                         <li><a href="<?php echo esc_url(home_url('/produk?kategori=sabun-laundry')); ?>" style="color: #cbd5e1; text-decoration: none; font-size: 0.93rem; transition: color 0.2s;">Laundry Care</a></li>
                         <li><a href="<?php echo esc_url(home_url('/produk?kategori=malabeez-perfume')); ?>" style="color: #cbd5e1; text-decoration: none; font-size: 0.93rem; transition: color 0.2s;">Malabeez Perfume</a></li>
@@ -84,7 +84,7 @@ $wa_retail    = 'https://api.whatsapp.com/send?phone=6285559474797&text=' . rawu
 
                 <!-- ═══ KOLOM 3: BRAND KAMI & EKOSISTEM INDOTECH ═══ -->
                 <div class="footer-brands-col">
-                    <h4 style="font-size: 0.8rem; font-weight: 700; color: #94a3b8; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1.5rem;">BRAND KAMI</h4>
+                    <div class="footer-col-heading" style="font-size: 0.8rem; font-weight: 700; color: #94a3b8; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1.5rem;">BRAND KAMI</div>
                     <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.85rem;">
                         <li style="display: flex; align-items: center; gap: 0.6rem;">
                             <span style="width: 6px; height: 6px; background: #D81B80; border-radius: 50%; display: inline-block;"></span>
@@ -115,7 +115,7 @@ $wa_retail    = 'https://api.whatsapp.com/send?phone=6285559474797&text=' . rawu
 
                 <!-- ═══ KOLOM 4: HUBUNGI KAMI & CHANNELS CS PRODUK ═══ -->
                 <div class="footer-contact-col">
-                    <h4 style="font-size: 0.8rem; font-weight: 700; color: #94a3b8; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1.5rem;">HUBUNGI KAMI</h4>
+                    <div class="footer-col-heading" style="font-size: 0.8rem; font-weight: 700; color: #94a3b8; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1.5rem;">HUBUNGI KAMI</div>
                     
                     <div style="margin-bottom: 1.2rem;">
                         <div style="font-size: 0.75rem; font-weight: 800; color: #ffffff; letter-spacing: 0.05em; margin-bottom: 0.25rem;">EMAIL RESMI</div>
@@ -156,9 +156,9 @@ $wa_retail    = 'https://api.whatsapp.com/send?phone=6285559474797&text=' . rawu
             </div>
 
             <div style="display: flex; gap: 1.5rem;">
-                <a href="<?php echo esc_url(home_url('/kebijakan-privasi')); ?>" style="color: #64748b; text-decoration: none;">Kebijakan Privasi</a>
-                <a href="<?php echo esc_url(home_url('/syarat-dan-ketentuan')); ?>" style="color: #64748b; text-decoration: none;">Syarat &amp; Ketentuan</a>
-                <a href="<?php echo esc_url(home_url('/kebijakan-cookie')); ?>" style="color: #64748b; text-decoration: none;">Kebijakan Cookie</a>
+                <a href="<?php echo esc_url(home_url('/kebijakan-privasi')); ?>" style="color: #94a3b8; text-decoration: none;">Kebijakan Privasi</a>
+                <a href="<?php echo esc_url(home_url('/syarat-dan-ketentuan')); ?>" style="color: #94a3b8; text-decoration: none;">Syarat &amp; Ketentuan</a>
+                <a href="<?php echo esc_url(home_url('/kebijakan-cookie')); ?>" style="color: #94a3b8; text-decoration: none;">Kebijakan Cookie</a>
             </div>
         </div>
     </div>

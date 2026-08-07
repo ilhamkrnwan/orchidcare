@@ -93,8 +93,9 @@
   - [x] Set atribut `width` dan `height` pada `mobile-drawer-logo`
   - [x] Tambahkan `<link rel="preconnect">` untuk Google Fonts di `header.php`
   - [x] Tambahkan atribut `id`, `for`, dan `aria-label` pada form select kategori di `hero.php`
-- [ ] **Phase 2 Accessibility & CSS/JS Optimization**:
-  - [ ] Adjust warna footer link & tag chip untuk WCAG AA contrast (4.5:1+)
-  - [ ] Perbaiki urutan tag Heading di bento & section
-- [ ] **Phase 3 SEO Optimization**:
-  - [ ] Tambahkan `<meta name="description">` pada header theme
+- [x] **Phase 2 Accessibility & CSS/JS Optimization**:
+  - [x] Adjust warna footer link & tag chip untuk WCAG AA contrast (4.5:1+)
+  - [x] Perbaiki urutan tag Heading di bento & section (mengganti h4 footer ke div)
+  - [x] Tingkatkan opacity & contrast `kat-card__label`
+- [x] **Phase 3 SEO Optimization**:
+  - [x] Tambahkan `<meta name="description">` dinamis pada wp_head via `functions.php`
